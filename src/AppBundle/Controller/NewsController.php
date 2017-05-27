@@ -1,20 +1,18 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Michael Trotzer
- * Date: 17.05.2017
- * Time: 06:34
+ * User: Micha
+ * Date: 27.05.2017
+ * Time: 10:35
  */
 
 namespace AppBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class NewsController extends Controller
+class NewsController
 {
     public function showAction()
     {
-        return $this->render('home.html.twig');
-
+        return $this->render('base.html.twig');
     }
 }

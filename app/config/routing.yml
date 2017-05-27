@@ -4,7 +4,8 @@ app:
 
 news_show:
     path:     /news
-    defaults: { _controller: AppBundle:Controller:News:show }
+    defaults: { _controller: AppBundle:Controller:news:show }
+
 
 
 
