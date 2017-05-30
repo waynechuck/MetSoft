@@ -12,14 +12,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class TodoController extends Controller
+class todoController extends Controller
 {
     /**
      * @Route("/todos", name="todo_list")
      */
     public function listAction()
     {
-        return $this->render('backend/todo/index.html.twig');
+        return $this->render('todo/index.html.twig');
     }
 
     /**
@@ -27,7 +27,7 @@ class TodoController extends Controller
      */
     public function createAction(Request $request)
     {
-        return $this->render('backend/todo/create.html.twig');
+        return $this->render('todo/create.html.twig');
     }
 
     /**
@@ -35,7 +35,7 @@ class TodoController extends Controller
      */
     public function editAction($id, Request $request)
     {
-        return $this->render('backend/todo/edit.html.twig');
+        return $this->render('todo/edit.html.twig');
     }
 
     /**
@@ -43,6 +43,6 @@ class TodoController extends Controller
      */
     public function detailsAction($id)
     {
-        return $this->render('backend/todo/details.html.twig');
+        return $this->render('todo/details.html.twig');
     }
 }

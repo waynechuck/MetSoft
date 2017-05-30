@@ -12,29 +12,29 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class frontendController extends Controller
+class webController extends Controller
 {
     /**
-     * @Route("/", name="frontend_homepage")
+     * @Route("/", name="web_homepage")
      */
     public function homepageAction()
     {
-        return $this->render('Frontend/home.html.twig');
+        return $this->render('web/home.html.twig');
     }
 
     /**
-     * @Route("/kontakt", name="frontend_kontakt")
+     * @Route("/kontakt", name="web_kontakt")
      */
     public function kontaktAction()
     {
-        return $this->render('Frontend/kontakt.html.twig');
+        return $this->render('web/kontakt.html.twig');
     }
 
     /**
-     * @Route("/anmelden", name="frontend_anmelden")
+     * @Route("/anmelden", name="web_anmelden")
      */
     public function anmeldenAction()
     {
-        return $this->render('Frontend/anmelden.html.twig');
+        return $this->render('web/anmelden.html.twig');
     }
 }

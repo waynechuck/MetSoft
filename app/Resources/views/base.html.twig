@@ -8,7 +8,7 @@
         <meta name="description" content="Basis HTML-Datei">
         <meta name="author" content="Michael Trotzer">
 
-        <title>{% block title %}{% endblock %}</title>
+        <title>{% block title %}MetSoft UG{% endblock %}</title>
 
         <!-- Bootstrap core CSS -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -16,15 +16,8 @@
         <!-- Bootstrap core JavaSkript -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" rel="stylesheet">
 
-        {% block stylesheets %}{% endblock %}
-        <!-- Überprüfen ob ich das benötige!
-            <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        -->
-
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <!-- Überprüfen ob ich das benötige!
-            <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-        -->
+        {% block stylesheets %}
+        {% endblock %}
 
         <!-- Custom styles for this template -->
         <link href="jumbotron.css" rel="stylesheet">
