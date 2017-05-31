@@ -5,14 +5,14 @@
     <a class="btn btn-default" href="/todos">Back to Todos</a>
     <hr>
 
-    <h2 class="page-header">{{ todos.name }}</h2>
+    <h2 class="page-header">{{ todo.name }}</h2>
     <ul class="list-group">
-        <li class="list-group-item">Category: {{ todos.category }}</li>
-        <li class="list-group-item">Priority: {{ todos.priority }}</li>
-        <li class="list-group-item">DueDate: <strong>{{ todos.dueDate|date('F j, Y, g:i a') }}</strong> </li>
+        <li class="list-group-item">Category: {{ todo.category }}</li>
+        <li class="list-group-item">Priority: {{ todo.priority }}</li>
+        <li class="list-group-item">DueDate: <strong>{{ todo.dueDate|date('F j, Y, g:i a') }}</strong> </li>
     </ul>
     <p>
-        {{ todos.description }}
+        {{ todo.description }}
     </p>
 
 {% endblock %}
