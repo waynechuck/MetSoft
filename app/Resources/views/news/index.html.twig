@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+    <h2 class="page-header">Aktuelle News in einer Tabelle</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID-Nummer</th>
+            <th>Artikel</th>
+            <th>Autor</th>
+            <th>Datum der Veröffentlichung</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for news in news %}
+            <tr>
+                <th scope="row">{{ news.id }}</th>
+                <td>{{ news.article }}</td>
+                <td>{{ news.author}} </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
