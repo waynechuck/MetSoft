@@ -9,7 +9,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\News;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -23,9 +22,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class newsController extends Controller
 {
-    /**
-     * @Route("/news", name="news_list")
-     */
+
     public function listAction()
     {
         $news = $this->getDoctrine()
@@ -37,9 +34,6 @@ class newsController extends Controller
         ));
     }
 
-    /**
-     * @Route("/news/create", name="news_create")
-     */
     public function createAction(Request $request)
     {
         $news = new news;

@@ -1,3 +1,43 @@
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+# Frontend der Anwendung im webController definiert! Funktioniert!
+Homepage:
+    path:     /
+    defaults: { _controller: AppBundle:web:homepage }
+
+Contact:
+    path:     /kontakt
+    defaults: { _controller: AppBundle:web:kontakt }
+
+Sign-In:
+    path:     /anmelden
+    defaults: { _controller: AppBundle:web:anmelden }
+
+# Newsseite zum Üben, warten auf Sven´s Aufgaben! Funktioniert!
+
+News:
+    path:     /news
+    defaults: { _controller: AppBundle:news:list }
+
+News_erstellen:
+    path:     /news/create
+    defaults: { _controller: AppBundle:news:create }
+
+# Backend der Anwendung im dashboardController definiert! Funktioniert
+
+Dashboard:
+    path:     /dashboard
+    defaults: { _controller: AppBundle:dashboard:index }
+
+# Todo´s-Anwendung im Backend für die Dashboardseite!
+# Muss noch angepasst werden!!!
+
+Dashboard/ToDo´s:
+    path:     /todos
+    defaults: { _controller: AppBundle:dashboard:list }
+
+Dashboard/ToDo´s:
+    path:     /todos/create
+    defaults: { _controller: AppBundle:dashboard:create }
