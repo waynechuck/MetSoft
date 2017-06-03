@@ -1,7 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
-
 {% block body %}
 
  <h2 class="page-header">Aktuelle Todos</h2>
@@ -33,6 +31,8 @@
     </td>
    </tr>
    {% endfor %}
+
+   <a class="btn btn-default" href="/todos/create">Todo´s hinzufügen</a>
    </tbody>
   </table>
 

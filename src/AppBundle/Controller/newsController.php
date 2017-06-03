@@ -19,6 +19,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class newsController extends Controller
 {
@@ -42,6 +43,7 @@ class newsController extends Controller
             ->add('article', TextareaType::class, array('attr' => array('class' => 'form-control', 'style' =>'margin-bottom:15px')))
             ->add('author', TextType::class, array('attr' => array('class' => 'form-control', 'style' =>'margin-bottom:15px')))
             ->add('publicationdate', DateTimeType::class, array('attr' => array('class' => 'formcontrol', 'style' =>'margin-bottom:15px')))
+            ->add('save', SubmitType::class, array('label' => 'Create News', 'attr' => array('class' => 'btn btn-primary', 'style' =>'margin-bottom:15px')))
             ->getForm();
 
         $form->handleRequest($request);
