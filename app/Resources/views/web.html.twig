@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="Basis HTML-Datei">
+    <meta name="description" content="Basis-Webseiten HTML-Datei">
     <meta name="author" content="Michael Trotzer">
 
     <title>{% block title %}MetSoft UG{% endblock %}</title>
@@ -42,19 +42,24 @@
                         </div>
                         <a class="navbar-brand" href="/">MetSoft UG</a>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+
+                            <!-- Suchfunktion für die Webseite vorerst ausgelagert!
                             <ul class="nav navbar-nav">
-                                <li><a href="/">Homepage</a></li>
-                                <li><a href="/kontakt">Kontakt</a></li>
+                                <form class="navbar-form navbar-right" role="search" abineguid="AF97B807692F4671AF3FE3656E428E29">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                </form>
                             </ul>
+                             Suchfunktion für die Webseite ausgelagert! -->
+
                             <ul class="nav navbar-nav navbar-right">
+                                <li><a href="/">Startseite</a></li>
+                                <li><a href="/kontakt">Kontakt</a></li>
                                  <li><a href="/anmelden">Anmelden</a></li>
                             </ul>
-                            <form class="navbar-form navbar-right" role="search" abineguid="AF97B807692F4671AF3FE3656E428E29">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Search">
-                                </div>
-                                <button type="submit" class="btn btn-default">Submit</button>
-                            </form>
+
                         </div>
                     </div>
                 </div>
@@ -68,37 +73,47 @@
         {% endblock %}
     </div>
 
-    <!-- footer start -->
-        <div class="row">
-            <!-- Footer linke Spalte -->
-            <div class="col-md-4">
-                <h3> Adresse </h3>
-                <address>
-                    <strong>MetSoft UG</strong><br>
-                    Sprengelstraße 27<br>
-                    13353 Berlin<br>
-                    (+49) 01725648306 <br>
-                </address>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <!-- footer start -->
+            <div class="row">
+                <!-- Footer linke Spalte -->
+                <div class="col-md-4">
+                    <h3> Hier finden Sie uns! </h3>
+                    <address>
+                        <strong>MetSoft UG</strong><br>
+                        Sprengelstraße 27<br>
+                        13353 Berlin<br>
+                        (+49) 01725648306 <br>
+                    </address>
 
-                <address>
-                    <strong>Michael Trotzer</strong><br>
-                    <a href="mailto:#">michael.trotzer@googlemail.com</a>
-                </address>
+                    <address>
+                        <strong>Michael Trotzer</strong><br>
+                        <a href="mailto:#">michael.trotzer@googlemail.com</a>
+                    </address>
+                </div>
+
+                <!-- Footer mittlere Spalte -->
+                <div class="col-md-4">
+                    <h3> Informationen </h3>
+                    <p> AGB´s </p>
+
+                </div>
+
+                <!-- Footer rechte Spalte -->
+                <div class="col-md-4">
+                    <h3> Sozialnetwork</h3>
+                    <p> Facebook </p>
+                </div>
+
             </div>
-
-            <!-- Footer mittlere Spalte -->
-            <div class="col-md-4">
-                <h3> Links </h3>
-                <p> Hier kommen Links hin?</p>
-            </div>
-
-            <!-- Footer rechte Spalte -->
-            <div class="col-md-4">
-                <h3> Test 1 </h3>
-                <p>&copy; 2017 MetSoft UG</p>
-            </div>
-
         </div>
+    </div>
+
+    <p>&copy; Design by Michael Trotzer</p>
+
+
+    </div>
 
 
     {% block javascripts %}{% endblock %}
