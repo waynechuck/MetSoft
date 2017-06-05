@@ -47,7 +47,7 @@ Todos_delete:
 
 login:
     path:     /login
-    defaults: { _controller: AppBundle:Security:login }
+    defaults: { _controller: AppBundle:security:login }
 
 
 
