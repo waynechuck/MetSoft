@@ -1,6 +1,7 @@
-{% extends 'web.html.twig' %}
+{% extends 'dashboard.html.twig' %}
 
 {% block body %}
+    <div class="jumbotron">
 
  <h2 class="page-header">Aktuelle Todos</h2>
    <table class="table table-striped">
@@ -19,21 +20,23 @@
     <td>{{ todo.name }}</td>
     <td>{{ todo.dueDate|date('F j, Y, g:i a')}}</td>
     <td>
-         <a href="/todos/details/{{ todo.id }}" class="btn btn-success">
+         <a href="/dashboard/todos/details/{{ todo.id }}" class="btn btn-success">
             Details
          </a>
-        <a href="/todos/edit/{{ todo.id }}" class="btn btn-default">
+        <a href="/dashboard/todos/edit/{{ todo.id }}" class="btn btn-default">
             Bearbeiten
         </a>
-        <a href="todos/delete/{{ todo.id }}" class="btn btn-danger">
+        <a href="/dashboard/todos/delete/{{ todo.id }}" class="btn btn-danger">
             Löschen
         </a>
     </td>
    </tr>
    {% endfor %}
 
-   <a class="btn btn-default" href="/todos/create">Todo´s hinzufügen</a>
+   <a class="btn btn-default" href="/dashboard/todos/create">Todo´s hinzufügen</a>
    </tbody>
   </table>
+
+    </div>
 
 {% endblock %}

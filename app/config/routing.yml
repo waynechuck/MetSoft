@@ -2,42 +2,64 @@ app:
     resource: '@AppBundle/Controller/'
     type: annotation
 
-# Frontend der Anwendung im webController definiert! Funktioniert!
-Homepage:
+# Frontend der Anwendung im webController definiert!
+Startseite:
     path:     /
-    defaults: { _controller: AppBundle:web:homepage }
+    defaults: { _controller: AppBundle:web:startseite }
 
-Contact:
+Konatakt:
     path:     /kontakt
     defaults: { _controller: AppBundle:web:kontakt }
 
-Sign-In:
+Anmelden:
     path:     /anmelden
     defaults: { _controller: AppBundle:web:anmelden }
+
+# Backend der Anwendung definiert!
+
+Dashboard:
+    path:     /dashboard
+    defaults: { _controller: AppBundle:web:dashboard }
+
+# Todo´s-Application
+
+Todos_anzeigen:
+    path:     /dashboard/todos
+    defaults: { _controller: AppBundle:todo:list }
+
+Todos_erstellen:
+    path:     /dashboard/todos/create
+    defaults: { _controller: AppBundle:todo:create }
+
+Todos_bearbeiten:
+    path:     /dashboard/todos/edit/{id}
+    defaults: { _controller: AppBundle:todo:edit }
+
+Todos_details:
+    path:     /dashboard/todos/details/{id}
+    defaults: { _controller: AppBundle:todo:details }
+
+Todos_delete:
+    path:     /dashboard/todos/delete/{id}
+    defaults: { _controller: AppBundle:todo:delete }
+
+# Anmeldebereich! Teststatus
+
+login:
+    path:     /login
+    defaults: { _controller: AppBundle:Security:login }
+
+
 
 # Newsseite zum Üben, warten auf Sven´s Aufgaben! Funktioniert!
 
 News:
-    path:     /news
+    path:     /dashboard/news
     defaults: { _controller: AppBundle:news:list }
 
 News_erstellen:
-    path:     /news/create
+    path:     /dashboard/news/create
     defaults: { _controller: AppBundle:news:create }
 
-# Backend der Anwendung im dashboardController definiert! Funktioniert
 
-Dashboard:
-    path:     /dashboard
-    defaults: { _controller: AppBundle:dashboard:index }
 
-# Todo´s-Anwendung im Backend für die Dashboardseite!
-# Muss noch angepasst werden!!!
-
-Dashboard/ToDo´s:
-    path:     /todos
-    defaults: { _controller: AppBundle:dashboard:list }
-
-Dashboard/ToDo´s:
-    path:     /todos/create
-    defaults: { _controller: AppBundle:dashboard:create }

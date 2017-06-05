@@ -1,0 +1,67 @@
+<!DOCTYPEhtml>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Basis-Webseiten HTML-Datei">
+    <meta name="author" content="Michael Trotzer">
+
+    <title>{% block title %}MetSoft UG{% endblock %}</title>
+
+    <!-- Bootstrap core CSS CND -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core JavaSkript -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" rel="stylesheet">
+
+    {% block stylesheets %}{% endblock %}
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="masthead">
+
+        <h3 class="text-muted"><center>Dashboard der MetSoft UG</center></h3>
+
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li><a href="/">Zur Webseite</a></li>
+                            <li><a href="#">Übersicht</a></li>
+                            <li><a href="#">Mitarbeiter</a></li>
+                            <li><a href="#">Finanzen</a></li>
+                            <li><a href="#">Projekte</a></li>
+                            <li><a href="#">Kunden</a></li>
+                            <li><a href="/dashboard/news">News</a></li>
+                            <li><a href="/dashboard/todos">Todo´s</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Begin page content -->
+    <div>
+        {% block body %}
+            <!-- Hier kommen die jeweiligen Seitenlayouts rein -->
+        {% endblock %}
+    </div>
+
+    <p>&copy; Design by Michael Trotzer</p>
+
+
+</div>
+
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>

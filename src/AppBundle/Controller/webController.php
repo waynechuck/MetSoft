@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 class webController extends Controller
 {
 
-    public function homepageAction()
+    public function startseiteAction()
     {
         return $this->render('web/home.html.twig');
     }
@@ -28,5 +28,10 @@ class webController extends Controller
     public function anmeldenAction()
     {
         return $this->render('web/anmelden.html.twig');
+    }
+
+    public function dashboardAction()
+    {
+        return $this->render('dash/index.html.twig');
     }
 }

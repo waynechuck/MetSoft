@@ -29,9 +29,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class todoController extends Controller
 {
-    /**
-     * @Route("/todos", name="todo_list")
-     */
+
     public function listAction()
     {
         $todos = $this->getDoctrine()
@@ -43,9 +41,6 @@ class todoController extends Controller
         ));
     }
 
-    /**
-     * @Route("/todos/create", name="todo_create")
-     */
     public function createAction(Request $request)
     {
         $todo = new Todo;
@@ -88,7 +83,7 @@ class todoController extends Controller
                 'Todo Added'
             );
 
-            return $this->redirectToRoute('todo_list');
+            return $this->redirectToRoute('Todos_anzeigen');
         }
 
         return $this->render('todo/create.html.twig', array(
@@ -96,9 +91,6 @@ class todoController extends Controller
         ));
     }
 
-    /**
-     * @Route("/todos/edit/{id}", name="todo_edit")
-     */
     public function editAction($id, Request $request)
     {
         $todo = $this->getDoctrine()
@@ -152,7 +144,7 @@ class todoController extends Controller
                 'Todo Updated'
             );
 
-            return $this->redirectToRoute('todo_list');
+            return $this->redirectToRoute('Totos_anzeigen');
         }
 
         return $this->render('todo/edit.html.twig', array(
@@ -161,9 +153,6 @@ class todoController extends Controller
         ));
     }
 
-    /**
-     * @Route("/todos/details/{id}", name="todo_details")
-     */
     public function detailsAction($id){
 
         $todo = $this->getDoctrine()
@@ -175,9 +164,6 @@ class todoController extends Controller
         ));
     }
 
-    /**
-     * @Route("/todos/delete/{id}", name="todo_delete")
-     */
     public function deleteAction($id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -191,6 +177,6 @@ class todoController extends Controller
             'Todo Removed'
         );
 
-        return $this->redirectToRoute('todo_list');
+        return $this->redirectToRoute('Todos_anzeigen');
     }
 }
