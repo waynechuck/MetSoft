@@ -49,8 +49,6 @@ login:
     path:     /login
     defaults: { _controller: AppBundle:security:login }
 
-
-
 # Newsseite zum Üben, warten auf Sven´s Aufgaben! Funktioniert!
 
 News:
@@ -60,6 +58,25 @@ News:
 News_erstellen:
     path:     /dashboard/news/create
     defaults: { _controller: AppBundle:news:create }
+
+#Mitarbeiter
+
+Mitarbeiter_anzeigen:
+    path:     /dashboard/mitarbeiter
+    defaults: { _controller: AppBundle:mitarbeiter:anzeigen }
+
+Mitarbeiter_erstellen:
+    path:     /dashboard/mitarbeiter/erstellen
+    defaults: { _controller: AppBundle:mitarbeiter:erstellen }
+
+Mitarbeiter_details:
+    path:     /dashboard/mitarbeiter/details
+    defaults: { _controller: AppBundle:mitarbeiter:details }
+
+Mitarbeiter_löschen:
+    path:     /dashboard/mitarbeiter/löschen
+    defaults: { _controller: AppBundle:mitarbeiter:löschen }
+
 
 
 

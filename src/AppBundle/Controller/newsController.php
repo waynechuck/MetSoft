@@ -30,7 +30,7 @@ class newsController extends Controller
             ->getRepository('AppBundle:News')
             ->findAll();
 
-        return $this->render('news/index.html.twig', array(
+        return $this->render('news/anzeigen.html.twig', array(
             'news' => $news
         ));
     }

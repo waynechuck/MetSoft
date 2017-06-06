@@ -1,0 +1,45 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block body %}
+    <div class="jumbotron">
+
+        <h2 class="page-header">Alle Mitarbeiter der MetSoft UG in der Übersicht</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Personalnummer</th>
+                <th>Vorname</th>
+                <th>Nachname</th>
+                <th>Adresse</th>
+                <th>Abteilung</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for mitarbeiter in mitarbeiter %}
+                <tr>
+                    <th scope="row">{{ mitarbeiter.id }}</th>
+                    <td>{{ mitarbeiter.vorname }}</td>
+                    <td>{{ mitarbeiter.nachname}}</td>
+                    <td>{{ mitarbeiter.strasse}} {{ mitarbeiter.Hausnummer }}, {{ mitarbeiter.Postleitzahl }}{{ mitarbeiter.Ort }}</td>
+                    <td>{{ mitarbeiter.abteilung}}</td>
+                    <td>
+                        <a href="/dashboard/mitarbeiter/details/{{ mitarbeiter.id }}" class="btn btn-success">
+                            Details
+                        </a>
+                        <a href="/dashboard/mitarbeiter/edit/{{ mitarbeiter.id }}" class="btn btn-default">
+                            Bearbeiten
+                        </a>
+                        <a href="/dashboard/mitarbeiter/delete/{{ mitarbeiter.id }}" class="btn btn-danger">
+                            Löschen
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+            <a class="btn btn-default" href="/dashboard/mitarbeiter/erstellen">neuen Mitarbeiter anlegen</a>
+            </tbody>
+        </table>
+
+    </div>
+
+{% endblock %}
