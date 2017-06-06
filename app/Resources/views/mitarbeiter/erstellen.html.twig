@@ -7,11 +7,72 @@
 
         <a class="btn btn-default" href="/dashboard/mitarbeiter">zurück!</a>
 
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
+        <div class="row">
+            <div class="col-md-12">
+                <h3> Persönliche Daten: </h3>
+                {{ form_start(form) }}
+                {{ form_errors(form) }}
+            </div>
+        </div>
 
+        <div class="row">
+            <!-- linke Spalte -->
+            <div class="col-md-6">
+                <div>
+                    {{ form_label(form.vorname) }}
+                    {{ form_errors(form.vorname) }}
+                    {{ form_widget(form.vorname) }}
 
+                    {{ form_label(form.nachname) }}
+                    {{ form_errors(form.nachname) }}
+                    {{ form_widget(form.nachname) }}
+
+                    {{ form_label(form.strasse) }}
+                    {{ form_errors(form.strasse) }}
+                    {{ form_widget(form.strasse) }}
+
+                    {{ form_label(form.hausnummer) }}
+                    {{ form_errors(form.hausnummer) }}
+                    {{ form_widget(form.hausnummer) }}
+
+                    {{ form_label(form.postleitzahl) }}
+                    {{ form_errors(form.postleitzahl) }}
+                    {{ form_widget(form.postleitzahl) }}
+                </div>
+            </div>
+            <!-- rechte Spalte -->
+            <div class="col-md-6">
+                <div>
+                    {{ form_label(form.ort) }}
+                    {{ form_errors(form.ort) }}
+                    {{ form_widget(form.ort) }}
+
+                    {{ form_label(form.personalausweissnummer) }}
+                    {{ form_errors(form.personalausweissnummer) }}
+                    {{ form_widget(form.personalausweissnummer) }}
+
+                    {{ form_label(form.familienstand) }}
+                    {{ form_errors(form.familienstand) }}
+                    {{ form_widget(form.familienstand) }}
+
+                    {{ form_label(form.geburtsdatum) }}
+                    {{ form_errors(form.geburtsdatum) }}
+                    {{ form_widget(form.geburtsdatum) }}
+
+                    {{ form_label(form.geburtsort) }}
+                    {{ form_errors(form.geburtsort) }}
+                    {{ form_widget(form.geburtsort) }}
+                </div>
+            </div>
+        </div>
     </div>
+
+
+            <div>
+                {{ form_widget(form.save) }}
+            </div>
+                {{ form_end(form) }}
+
+
 
 {% endblock %}
