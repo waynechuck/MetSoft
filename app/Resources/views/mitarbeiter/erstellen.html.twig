@@ -1,11 +1,29 @@
 {% extends 'dashboard.html.twig' %}
 
 {% block body %}
+
     <div class="jumbotron">
 
-        <h2 class="page-header">Neuen Mitarbeiter anlegen</h2>
+
+
+
+
 
         <a class="btn btn-default" href="/dashboard/mitarbeiter">zurück!</a>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="page-header">Neuen Mitarbeiter anlegen</h2>
+                {{ form_start(form) }}
+                {{ form_errors(form) }}
+            </div>
+
+            <div class="col-md-6">
+                {{ form_label(form.foto) }}
+                {{ form_errors(form.foto) }}
+                {{ form_widget(form.foto) }}
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-md-12">
@@ -65,13 +83,88 @@
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3> Unternehmensdaten: </h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    {{ form_label(form.abteilung) }}
+                    {{ form_errors(form.abteilung) }}
+                    {{ form_widget(form.abteilung) }}
+
+                    {{ form_label(form.position) }}
+                    {{ form_errors(form.position) }}
+                    {{ form_widget(form.position) }}
+
+                    {{ form_label(form.einstellungsdatum) }}
+                    {{ form_errors(form.einstellungsdatum) }}
+                    {{ form_widget(form.einstellungsdatum) }}
+
+                    {{ form_label(form.steuerklasse) }}
+                    {{ form_errors(form.steuerklasse) }}
+                    {{ form_widget(form.steuerklasse) }}
+
+                    {{ form_label(form.steueridentifiktationsnummer) }}
+                    {{ form_errors(form.steueridentifiktationsnummer) }}
+                    {{ form_widget(form.steueridentifiktationsnummer) }}
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div>
+
+                    {{ form_label(form.bildungsabschluss) }}
+                    {{ form_errors(form.bildungsabschluss) }}
+                    {{ form_widget(form.bildungsabschluss) }}
+
+                    {{ form_label(form.bruttoarbeitslohn) }}
+                    {{ form_errors(form.bruttoarbeitslohn) }}
+                    {{ form_widget(form.bruttoarbeitslohn) }}
+
+                    {{ form_label(form.arbeitsstunden) }}
+                    {{ form_errors(form.arbeitsstunden) }}
+                    {{ form_widget(form.arbeitsstunden) }}
+
+                    {{ form_label(form.krankenkasse) }}
+                    {{ form_errors(form.krankenkasse) }}
+                    {{ form_widget(form.krankenkasse) }}
+
+                    {{ form_label(form.sozialversicherungsausweiss) }}
+                    {{ form_errors(form.sozialversicherungsausweiss) }}
+                    {{ form_widget(form.sozialversicherungsausweiss) }}
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3> Weitere Daten: </h3>
+
+                {{ form_label(form.bewerbung) }}
+                {{ form_errors(form.bewerbung) }}
+                {{ form_widget(form.bewerbung) }}
+
+                {{ form_label(form.arbeitszeugnis) }}
+                {{ form_errors(form.arbeitszeugnis) }}
+                {{ form_widget(form.arbeitszeugnis) }}
+            </div>
+        </div>
+        {{ form_widget(form.save) }}
+        {{ form_end(form) }}
+
+        </div>
     </div>
 
+    <div>
 
-            <div>
-                {{ form_widget(form.save) }}
-            </div>
-                {{ form_end(form) }}
+    </div>
+
 
 
 
