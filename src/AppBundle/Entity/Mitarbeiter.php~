@@ -52,13 +52,6 @@ class Mitarbeiter
     /**
      * @var int
      *
-     * @ORM\Column(name="Telefon", type="integer")
-     */
-    private $telefon;
-
-    /**
-     * @var int
-     *
      * @ORM\Column(name="Postleitzahl", type="integer")
      */
     private $postleitzahl;
@@ -192,7 +185,7 @@ class Mitarbeiter
     /**
      * @var string
      *
-     * @ORM\Column(name="EMail", type="string", length=255)
+     * @ORM\Column(name="EMail", type="EMail", length=255)
      */
     private $email;
 
@@ -300,30 +293,6 @@ class Mitarbeiter
     public function getHausnummer()
     {
         return $this->hausnummer;
-    }
-
-    /**
-     * Set telefon
-     *
-     * @param integer $telefon
-     *
-     * @return Mitarbeiter
-     */
-    public function setTelefon($telefon)
-    {
-        $this->telefon = $telefon;
-
-        return $this;
-    }
-
-    /**
-     * Get telefon
-     *
-     * @return int
-     */
-    public function getTelefon()
-    {
-        return $this->telefon;
     }
 
     /**

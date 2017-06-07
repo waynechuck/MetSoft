@@ -1,32 +1,40 @@
 {% extends 'dashboard.html.twig' %}
 
 {% block body %}
-    <div class="jumbotron">
 
-        <h2 class="page-header">Alle Mitarbeiter der MetSoft UG in der Übersicht</h2>
-        <table class="table table-striped">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title"><center>Mitarbeiterübersicht der MetSoft UG</center></h3>
+        </div>
+        <div class="panel-body">
+            <a href="/dashboard/mitarbeiter/erstellen" class="btn btn-primary">Mitarbeiterprofil anlegen</a>
+        </div>
+
+        <table class="table table-striped table-hover">
             <thead>
             <tr>
+
                 <th>Personalnummer</th>
                 <th>Vorname</th>
                 <th>Nachname</th>
-                <th>Adresse</th>
-                <th>Abteilung</th>
+                <th>Telefon</th>
+                <th>Position</th>
+                <th> Bearbeitungsmöglichkeiten</th>
             </tr>
             </thead>
             <tbody>
             {% for mitarbeiter in mitarbeiter %}
                 <tr>
-                    <th scope="row">{{ mitarbeiter.id }}</th>
-                    <td>{{ mitarbeiter.vorname }}</td>
-                    <td>{{ mitarbeiter.nachname}}</td>
-                    <td>{{ mitarbeiter.strasse}} {{ mitarbeiter.Hausnummer }}, {{ mitarbeiter.Postleitzahl }}{{ mitarbeiter.Ort }}</td>
-                    <td>{{ mitarbeiter.abteilung}}</td>
+                    <th scope="row"> {{ mitarbeiter.id }} </th>
+                    <td> {{ mitarbeiter.vorname }} </td>
+                    <td> {{ mitarbeiter.nachname}} </td>
+                    <td> {{ mitarbeiter.telefon }} </td>
+                    <td> {{ mitarbeiter.position}} </td>
                     <td>
                         <a href="/dashboard/mitarbeiter/details/{{ mitarbeiter.id }}" class="btn btn-success">
                             Details
                         </a>
-                        <a href="/dashboard/mitarbeiter/edit/{{ mitarbeiter.id }}" class="btn btn-default">
+                        <a href="/dashboard/mitarbeiter/edit/{{ mitarbeiter.id }}" class="btn btn-info">
                             Bearbeiten
                         </a>
                         <a href="/dashboard/mitarbeiter/delete/{{ mitarbeiter.id }}" class="btn btn-danger">
@@ -36,7 +44,6 @@
                 </tr>
             {% endfor %}
 
-            <a class="btn btn-default" href="/dashboard/mitarbeiter/erstellen">neuen Mitarbeiter anlegen</a>
             </tbody>
         </table>
 

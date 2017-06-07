@@ -70,7 +70,7 @@ Mitarbeiter_erstellen:
     defaults: { _controller: AppBundle:mitarbeiter:erstellen }
 
 Mitarbeiter_details:
-    path:     /dashboard/mitarbeiter/details
+    path:     /dashboard/mitarbeiter/details/{id}
     defaults: { _controller: AppBundle:mitarbeiter:details }
 
 Mitarbeiter_löschen:

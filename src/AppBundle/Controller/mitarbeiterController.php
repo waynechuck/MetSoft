@@ -25,6 +25,8 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 
 class mitarbeiterController extends Controller
 {
@@ -49,16 +51,33 @@ class mitarbeiterController extends Controller
         $mitarbeiter = new mitarbeiter;
 
         $form = $this->createFormBuilder($mitarbeiter)
-            //Persönliche Daten:
+            //TextType:
             ->add('vorname', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             ->add('nachname', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             ->add('strasse', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             ->add('hausnummer', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('postleitzahl', NumberType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             ->add('ort', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('geburtsdatum', BirthdayType::class, array('placeholder' => array('year' => 'Jahr', 'month' => 'Monat', 'day' => 'Tag'), 'attr' => array('class' => 'form-control', 'style' =>'margin-bottom:15px')))
             ->add('geburtsort', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('sozialversicherungsausweiss', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('bruttoarbeitslohn', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('bewerbung', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('foto', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('arbeitszeugnis', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             ->add('personalausweissnummer', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('bildungsabschluss', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('krankenkasse', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+
+            // E-MailType
+            ->add('email', EmailType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+
+            // NumberType
+            ->add('steueridentifiktationsnummer', NumberType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('arbeitsstunden', NumberType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('postleitzahl', NumberType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('telefon', NumberType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+
+
+            // ChoiceType
             ->add('familienstand', ChoiceType::class, array('choices' => array(
                 'ledig' => 'ledig',
                 'verheiratet' => 'verheiratet',
@@ -72,28 +91,42 @@ class mitarbeiterController extends Controller
                 'nicht bekannt' => 'nicht bekannt'),
                 'attr' => array('class' => 'form-control', 'style' =>'margin-bottom:15px')))
 
-            // Unternehmensdaten:
             ->add('abteilung', ChoiceType::class, array('choices' => array(
-                'ledig' => 'ledig',
-                'verheiratet' => 'verheiratet'),
+                'Name der Abteilung' => 'Name der Abteilung',
+                'Name der Abteilung1' => 'Name der Abteilung1'),
                 'attr' => array('class' => 'form-control', 'style' =>'margin-bottom:15px')))
 
-            ->add('position', ChoiceType::class, array('choices' => array('Mitarbeiter' => 'Mitarbeiter', 'Teamleiter' => 'Teamleiter', 'Kitaleiter' => 'Kitaleiter', 'Geschäftsführher' => 'Geschäftsführer'), 'attr' => array('class' => 'form-control', 'style' =>'margin-bottom:15px')))
-            ->add('einstellungsdatum', BirthdayType::class, array('placeholder' => array('year' => 'Jahr', 'month' => 'Monat', 'day' => 'Tag'), 'attr' => array('class' => 'form-control', 'style' =>'margin-bottom:15px')))
-            ->add('steuerklasse', NumberType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('steueridentifiktationsnummer', NumberType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('arbeitsstunden', NumberType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('bildungsabschluss', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('krankenkasse', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('position', ChoiceType::class, array('choices' => array(
+                'Mitarbeiter' => 'Mitarbeiter',
+                'Teamleiter' => 'Teamleiter',
+                'Kitaleiter' => 'Kitaleiter',
+                'Geschäftsführer' => 'Geschäftsführer'),
+                'attr' => array('class' => 'form-control', 'style' =>'margin-bottom:15px')))
 
-            // Alle anderen zum einordnen:
-            ->add('sozialversicherungsausweiss', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('bruttoarbeitslohn', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('bewerbung', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('foto', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('arbeitszeugnis', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('steuerklasse', ChoiceType::class, array( 'choices' => array(
+                'eins' => 'I',
+                'zwei' => 'II',
+                'drei' => 'III',
+                'vier' => 'IV',
+                'fünf' => 'V',
+                'sechs' => 'VI'),
+                'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
 
-            // Sicherungsdaten
+            //DateType + BirthsdayType Typen
+
+            ->add('einstellungsdatum', DateType::class, array(
+                'placeholder' => array(
+                    'year' => 'Jahr', 'month' => 'Monat', 'day' => 'Tag'),
+                'attr' => array('class' => 'form-control', 'style' =>'margin-bottom:15px')))
+
+            ->add('geburtsdatum', BirthdayType::class, array(
+                'placeholder' => array(
+                    'year' => 'Jahr',
+                    'month' => 'Monat',
+                    'day' => 'Tag'),
+                'attr' => array('class' => 'form-control', 'style' =>'margin-bottom:15px')))
+
+            // Bestätigungbutton um das Formular zu übernehmen
             ->add('save', SubmitType::class, array('label' => 'Erstelle Mitarbeiter', 'attr' => array('class' => 'btn btn-primary', 'style' =>'margin-bottom:15px')))
             ->getForm();
 
@@ -112,6 +145,7 @@ class mitarbeiterController extends Controller
             $geburtsort = $form['geburtsort']->getData();
             $familienstand = $form['familienstand']->getData();
             $personalausweissnummer = $form['personalausweissnummer']->getData();
+            $telefon = $form['telefon']->getData();
 
             // Unternehmensdaten
             $abteilung = $form['abteilung']->getData();
@@ -129,6 +163,7 @@ class mitarbeiterController extends Controller
             $bewerbung = $form['bewerbung']->getData();
             $foto = $form['foto']->getData();
             $arbeitszeugnis = $form['arbeitszeugnis']->getData();
+            $email = $form ['email']->getData();
 
             //data
             $mitarbeiter->setVorname($vorname);
@@ -141,6 +176,8 @@ class mitarbeiterController extends Controller
             $mitarbeiter->setGeburtsort($geburtsort);
             $mitarbeiter->setFamilienstand($familienstand);
             $mitarbeiter->setPersonalausweissnummer($personalausweissnummer);
+            $mitarbeiter->setTelefon($telefon);
+
              // Unternehmensdaten
             $mitarbeiter->setAbteilung($abteilung);
             $mitarbeiter->setPosition($position);
@@ -156,6 +193,7 @@ class mitarbeiterController extends Controller
             $mitarbeiter->setBewerbung($bewerbung);
             $mitarbeiter->setFoto($foto);
             $mitarbeiter->setArbeitszeugnis($arbeitszeugnis );
+            $mitarbeiter->setEmail($email);
 
             $em = $this->getDoctrine()->getManager();
 
@@ -174,4 +212,16 @@ class mitarbeiterController extends Controller
             'form' => $form->createView()
         ));
     }
+
+    public function detailsAction($id){
+
+        $mitarbeiter = $this->getDoctrine()
+            ->getRepository('AppBundle:Mitarbeiter')
+            ->find($id);
+
+        return $this->render('mitarbeiter/details.html.twig', array(
+            'mitarbeiter' => $mitarbeiter
+        ));
+    }
+
 }

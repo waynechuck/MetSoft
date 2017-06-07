@@ -2,34 +2,22 @@
 
 {% block body %}
 
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title"><center>Mitarbeiter</center></h3>
+        </div>
+        <div class="panel-body">
+            <a href="/dashboard/mitarbeiter" class="btn btn-primary">zurück!</a>
+        </div>
+
     <div class="jumbotron">
 
-
-
-
-
-
-        <a class="btn btn-default" href="/dashboard/mitarbeiter">zurück!</a>
-
-        <div class="row">
-            <div class="col-md-6">
-                <h2 class="page-header">Neuen Mitarbeiter anlegen</h2>
-                {{ form_start(form) }}
-                {{ form_errors(form) }}
-            </div>
-
-            <div class="col-md-6">
-                {{ form_label(form.foto) }}
-                {{ form_errors(form.foto) }}
-                {{ form_widget(form.foto) }}
-            </div>
-        </div>
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
 
         <div class="row">
             <div class="col-md-12">
                 <h3> Persönliche Daten: </h3>
-                {{ form_start(form) }}
-                {{ form_errors(form) }}
             </div>
         </div>
 
@@ -56,15 +44,17 @@
                     {{ form_label(form.postleitzahl) }}
                     {{ form_errors(form.postleitzahl) }}
                     {{ form_widget(form.postleitzahl) }}
+
+                    {{ form_label(form.ort) }}
+                    {{ form_errors(form.ort) }}
+                    {{ form_widget(form.ort) }}
+
+
                 </div>
             </div>
             <!-- rechte Spalte -->
             <div class="col-md-6">
                 <div>
-                    {{ form_label(form.ort) }}
-                    {{ form_errors(form.ort) }}
-                    {{ form_widget(form.ort) }}
-
                     {{ form_label(form.personalausweissnummer) }}
                     {{ form_errors(form.personalausweissnummer) }}
                     {{ form_widget(form.personalausweissnummer) }}
@@ -80,6 +70,15 @@
                     {{ form_label(form.geburtsort) }}
                     {{ form_errors(form.geburtsort) }}
                     {{ form_widget(form.geburtsort) }}
+
+                    {{ form_label(form.telefon) }}
+                    {{ form_errors(form.telefon) }}
+                    {{ form_widget(form.telefon) }}
+
+                    {{ form_label(form.email) }}
+                    {{ form_errors(form.email) }}
+                    {{ form_widget(form.email) }}
+
                 </div>
             </div>
         </div>
@@ -153,19 +152,17 @@
                 {{ form_label(form.arbeitszeugnis) }}
                 {{ form_errors(form.arbeitszeugnis) }}
                 {{ form_widget(form.arbeitszeugnis) }}
+
+                {{ form_label(form.foto) }}
+                {{ form_errors(form.foto) }}
+                {{ form_widget(form.foto) }}
+
             </div>
         </div>
+
         {{ form_widget(form.save) }}
         {{ form_end(form) }}
 
         </div>
     </div>
-
-    <div>
-
-    </div>
-
-
-
-
 {% endblock %}
