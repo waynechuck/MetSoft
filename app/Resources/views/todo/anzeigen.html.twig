@@ -1,49 +1,37 @@
 {% extends 'dashboard.html.twig' %}
 
+{% block title %}{% endblock %}
+
 {% block body %}
 
     <div class="panel-heading">
-
         <h3 class="panel-title"><center>Übersicht der aktuelle ToDo´s</center></h3>
     </div>
-
     <div class="jumbotron">
-
         <a class="btn btn-primary" href="/dashboard/todos/erstellen">Todo´s hinzufügen</a>
-
-
         <table class="table table-striped">
-   <thead>
-    <tr>
-        <th>ID-Nummer</th>
-        <th>Name des ToDo`s</th>
-        <th>Deadline</th>
-        <th>Bearbeitungsmöglichkeiten</th>
-    </tr>
-   </thead>
-   <tbody>
-   {% for todo in todos %}
-   <tr>
-    <th scope="row">{{ todo.id }}</th>
-    <td>{{ todo.name }}</td>
-    <td>{{ todo.dueDate|date('F j, Y, g:i a')}}</td>
-    <td>
-         <a href="/dashboard/todos/details/{{ todo.id }}" class="btn btn-success">
-            Details
-         </a>
-        <a href="/dashboard/todos/bearbeiten/{{ todo.id }}" class="btn btn-default">
-            Bearbeiten
-        </a>
-        <a href="/dashboard/todos/löschen/{{ todo.id }}" class="btn btn-danger">
-            Löschen
-        </a>
-    </td>
-   </tr>
-   {% endfor %}
-
-   </tbody>
-  </table>
-
+            <thead>
+            <tr>
+                <th>ID-Nummer</th>
+                <th>Name des ToDo`s</th>
+                <th>Deadline</th>
+                <th>Bearbeitungsmöglichkeiten</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for todo in todos %}
+                <tr>
+                    <th scope="row">{{ todo.id }}</th>
+                    <td>{{ todo.name }}</td>
+                    <td>{{ todo.dueDate|date('F j, Y, g:i a')}}</td>
+                    <td>
+                        <a href="/dashboard/todos/details/{{ todo.id }}" class="btn btn-success">Details</a>
+                        <a href="/dashboard/todos/bearbeiten/{{ todo.id }}" class="btn btn-info">Bearbeiten</a>
+                        <a href="/dashboard/todos/löschen/{{ todo.id }}" class="btn btn-danger">Löschen</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
-
 {% endblock %}

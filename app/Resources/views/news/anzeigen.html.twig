@@ -5,12 +5,11 @@
 {% block body %}
 
     <div class="panel-heading">
-
         <h3 class="panel-title"><center>Übersicht der aktuelle News</center></h3>
     </div>
-
-<div class="jumbotron">
-    <table class="table table-striped">
+    <div class="jumbotron">
+        <a class="btn btn-primary" href="/dashboard/news/erstellen">News erstellen</a>
+        <table class="table table-striped">
         <thead>
         <tr>
             <th>ID-Nummer</th>
@@ -28,9 +27,6 @@
                 <td>{{ news.veroeffentlichungsdatum|date('j F Y')}} </td>
             </tr>
         {% endfor %}
-
-        <a class="btn btn-primary" href="/dashboard/news/erstellen">News erstellen</a>
-
         </tbody>
     </table>
 

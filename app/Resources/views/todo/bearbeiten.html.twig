@@ -2,7 +2,16 @@
 
 {% block body %}
 
-    <h2 class="page-header">Edit Todo</h2>
+    <div class="panel-heading">
+
+        <h3 class="panel-title"><center>Todo bearbeiten</center></h3>
+    </div>
+
+    <div class="jumbotron">
+
+    <a class="btn btn-primary" href="/dashboard/todos">zurück zur Übersicht</a>
+
+    <h2 class="page-header">Todo bearbeiten</h2>
     {{ form_start(form) }}
     {{ form_widget(form) }}
     {{ form_end(form) }}

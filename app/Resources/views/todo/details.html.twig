@@ -2,17 +2,26 @@
 
 {% block body %}
 
-    <a class="btn btn-default" href="/dashboard/todos">Back to Todos</a>
-    <hr>
+    <div class="panel-heading">
 
-    <h2 class="page-header">{{ todo.name }}</h2>
+        <h3 class="panel-title"><center>Todo bearbeiten</center></h3>
+    </div>
+
+    <div class="jumbotron">
+
+    <a class="btn btn-primary" href="/dashboard/todos">zurück zur Übersicht</a>
+
+
+    <h2 class="page-header"> Infos zu den Details</h2>
     <ul class="list-group">
-        <li class="list-group-item">Category: {{ todo.category }}</li>
-        <li class="list-group-item">Priority: {{ todo.priority }}</li>
-        <li class="list-group-item">DueDate: <strong>{{ todo.dueDate|date('F j, Y, g:i a') }}</strong> </li>
+        <li class="list-group-item"><strong> Datum: <br> </strong>{{ todo.dueDate|date('F j, Y, g:i a') }} </li>
+        <li class="list-group-item"><strong> Kategorie: <br> </strong> {{ todo.category }}</li>
+        <li class="list-group-item"><strong> Priorität: <br> </strong> {{ todo.priority }}</li>
+        <li class="list-group-item"><strong> Name: <br> </strong> {{ todo.name }}</li>
+        <li class="list-group-item"><strong> Beschreibung: <br> </strong> {{ todo.description }}</li>
     </ul>
     <p>
-        {{ todo.description }}
+
     </p>
 
 {% endblock %}
