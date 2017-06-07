@@ -2,7 +2,6 @@
 
 {% block body %}
 
-    <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title"><center>Mitarbeiterübersicht der MetSoft UG</center></h3>
         </div>
@@ -35,7 +34,7 @@
                         <a href="/dashboard/mitarbeiter/details/{{ mitarbeiter.id }}" class="btn btn-success">
                             Details
                         </a>
-                        <a href="/dashboard/mitarbeiter/edit/{{ mitarbeiter.id }}" class="btn btn-info">
+                        <a href="/dashboard/mitarbeiter/bearbeiten/{{ mitarbeiter.id }}" class="btn btn-info">
                             Bearbeiten
                         </a>
                         <a href="/dashboard/mitarbeiter/löschen/{{ mitarbeiter.id }}" class="btn btn-danger">
@@ -46,7 +45,6 @@
             {% endfor %}
             </tbody>
         </table>
-    </div>
     </div>
 
 {% endblock %}

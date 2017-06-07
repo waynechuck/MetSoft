@@ -69,6 +69,10 @@ Mitarbeiter_erstellen:
     path:     /dashboard/mitarbeiter/erstellen
     defaults: { _controller: AppBundle:mitarbeiter:erstellen }
 
+Mitarbeiter_bearbeiten:
+    path:     /dashboard/mitarbeiter/bearbeiten/{id}
+    defaults: { _controller: AppBundle:mitarbeiter:bearbeiten }
+
 Mitarbeiter_details:
     path:     /dashboard/mitarbeiter/details/{id}
     defaults: { _controller: AppBundle:mitarbeiter:details }
@@ -76,6 +80,12 @@ Mitarbeiter_details:
 Mitarbeiter_löschen:
     path:     /dashboard/mitarbeiter/löschen/{id}
     defaults: { _controller: AppBundle:mitarbeiter:löschen }
+
+# Finanzen
+
+Finanzen_anzeigen:
+    path:     /dashboard/finanzen
+    defaults: { _controller: AppBundle:finanzen:anzeigen }
 
 
 

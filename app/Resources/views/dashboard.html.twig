@@ -35,11 +35,11 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                         <ul class="nav navbar-nav navbar-left">
                             <li><a href="/">Zur Webseite</a></li>
-                            <li><a href="#">Übersicht</a></li>
+                            <li><a href="/dashboard">Übersicht</a></li>
                             <li><a href="/dashboard/mitarbeiter">Mitarbeiter</a></li>
-                            <li><a href="#">Finanzen</a></li>
-                            <li><a href="#">Projekte</a></li>
-                            <li><a href="#">Kunden</a></li>
+                            <li><a href="/dashboard/finanzen">Finanzen</a></li>
+                            <li><a href="/dashboard/projekte">Projekte</a></li>
+                            <li><a href="/dashboard/kunden">Kunden</a></li>
                             <li><a href="/dashboard/news">News</a></li>
                             <li><a href="/dashboard/todos">Todo´s</a></li>
                         </ul>
@@ -51,9 +51,13 @@
 
     <!-- Begin page content -->
     <div>
-        {% block body %}
-            <!-- Hier kommen die jeweiligen Seitenlayouts rein -->
-        {% endblock %}
+
+        <div class="panel panel-primary">
+            {% block body %}
+                <!-- Hier kommen die jeweiligen Seitenlayouts rein -->
+            {% endblock %}
+        </div>
+
     </div>
 
     <p>&copy; Design by Michael Trotzer</p>
