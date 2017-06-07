@@ -1,0 +1,23 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block body %}
+
+
+    <div class="panel-heading">
+
+        <h3 class="panel-title"><center>Übersicht der aktuelle ToDo´s</center></h3>
+    </div>
+
+    <div class="jumbotron">
+
+        <a class="btn btn-primary" href="/dashboard/todos">zurück!</a>
+
+        <h2 class="page-header">Todo hinzufügen</h2>
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+
+    </div>
+
+{% endblock %}

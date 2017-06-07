@@ -29,18 +29,18 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class todoController extends Controller
 {
 
-    public function listAction()
+    public function anzeigenAction()
     {
         $todos = $this->getDoctrine()
             ->getRepository('AppBundle:Todo')
             ->findAll();
 
-        return $this->render('todo/index.html.twig', array(
+        return $this->render('todo/anzeigen.html.twig', array(
             'todos' => $todos
         ));
     }
 
-    public function createAction(Request $request)
+    public function erstellenAction(Request $request)
     {
         $todo = new Todo;
 
@@ -85,12 +85,12 @@ class todoController extends Controller
             return $this->redirectToRoute('Todos_anzeigen');
         }
 
-        return $this->render('todo/create.html.twig', array(
+        return $this->render('todo/erstellen.html.twig', array(
             'form' => $form->createView()
         ));
     }
 
-    public function editAction($id, Request $request)
+    public function bearbeitenAction($id, Request $request)
     {
         $todo = $this->getDoctrine()
             ->getRepository('AppBundle:Todo')
@@ -146,7 +146,7 @@ class todoController extends Controller
             return $this->redirectToRoute('Totos_anzeigen');
         }
 
-        return $this->render('todo/edit.html.twig', array(
+        return $this->render('todo/bearbeiten.html.twig', array(
             'todo' => $todo,
             'form' => $form->createView()
         ));
@@ -163,7 +163,7 @@ class todoController extends Controller
         ));
     }
 
-    public function deleteAction($id)
+    public function löschenAction($id)
     {
         $em = $this->getDoctrine()->getManager();
         $todo = $em->getRepository('AppBundle:Todo')->find($id);

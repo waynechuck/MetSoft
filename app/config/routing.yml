@@ -25,23 +25,23 @@ Dashboard:
 
 Todos_anzeigen:
     path:     /dashboard/todos
-    defaults: { _controller: AppBundle:todo:list }
+    defaults: { _controller: AppBundle:todo:anzeigen }
 
 Todos_erstellen:
-    path:     /dashboard/todos/create
-    defaults: { _controller: AppBundle:todo:create }
+    path:     /dashboard/todos/erstellen
+    defaults: { _controller: AppBundle:todo:erstellen }
 
 Todos_bearbeiten:
-    path:     /dashboard/todos/edit/{id}
-    defaults: { _controller: AppBundle:todo:edit }
+    path:     /dashboard/todos/bearbeiten/{id}
+    defaults: { _controller: AppBundle:todo:bearbeiten }
 
 Todos_details:
     path:     /dashboard/todos/details/{id}
     defaults: { _controller: AppBundle:todo:details }
 
 Todos_delete:
-    path:     /dashboard/todos/delete/{id}
-    defaults: { _controller: AppBundle:todo:delete }
+    path:     /dashboard/todos/löschen/{id}
+    defaults: { _controller: AppBundle:todo:löschen }
 
 # Anmeldebereich! Teststatus
 
@@ -51,13 +51,13 @@ login:
 
 # Newsseite zum Üben, warten auf Sven´s Aufgaben! Funktioniert!
 
-News:
+News_anzeigen:
     path:     /dashboard/news
-    defaults: { _controller: AppBundle:news:list }
+    defaults: { _controller: AppBundle:news:anzeigen }
 
 News_erstellen:
-    path:     /dashboard/news/create
-    defaults: { _controller: AppBundle:news:create }
+    path:     /dashboard/news/erstellen
+    defaults: { _controller: AppBundle:news:erstellen }
 
 #Mitarbeiter
 

@@ -30,6 +30,6 @@ class webController extends Controller
 
     public function dashboardAction()
     {
-        return $this->render('dash/index.html.twig');
+        return $this->render('dash/anzeigen.html.twig');
     }
 }

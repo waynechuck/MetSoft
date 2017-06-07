@@ -4,8 +4,12 @@
 
 {% block body %}
 
-    <div class="jumbotron">
-    <h2 class="page-header">Aktuelle News in einer Tabelle</h2>
+    <div class="panel-heading">
+
+        <h3 class="panel-title"><center>Übersicht der aktuelle News</center></h3>
+    </div>
+
+<div class="jumbotron">
     <table class="table table-striped">
         <thead>
         <tr>
@@ -19,12 +23,13 @@
         {% for news in news %}
             <tr>
                 <th scope="row">{{ news.id }}</th>
-                <td>{{ news.article }}</td>
-                <td>{{ news.author}} </td>
+                <td>{{ news.artikel }}</td>
+                <td>{{ news.autor}} </td>
+                <td>{{ news.veroeffentlichungsdatum|date('j F Y')}} </td>
             </tr>
         {% endfor %}
 
-        <a class="btn btn-default" href="/news/create">News hinzufügen</a>
+        <a class="btn btn-primary" href="/dashboard/news/erstellen">News erstellen</a>
 
         </tbody>
     </table>

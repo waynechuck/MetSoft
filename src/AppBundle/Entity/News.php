@@ -24,23 +24,30 @@ class News
     /**
      * @var string
      *
-     * @ORM\Column(name="article", type="text")
+     * @ORM\Column(name="artikel", type="text")
      */
-    private $article;
+    private $artikel;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="author", type="string", length=255)
+     * @ORM\Column(name="autor", type="string", length=255)
      */
-    private $author;
+    private $autor;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="publicationdate", type="datetimetz")
+     * @ORM\Column(name="veroeffentlichungsdatum", type="datetimetz")
      */
-    private $publicationdate;
+    private $veroeffentlichungsdatum;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="artikelname", type="string", length=255)
+     */
+    private $artikelname;
 
 
     /**
@@ -54,75 +61,99 @@ class News
     }
 
     /**
-     * Set article
+     * Set artikel
      *
-     * @param string $article
+     * @param string $artikel
      *
      * @return News
      */
-    public function setArticle($article)
+    public function setArtikel($artikel)
     {
-        $this->article = $article;
+        $this->artikel = $artikel;
 
         return $this;
     }
 
     /**
-     * Get article
+     * Get artikel
      *
      * @return string
      */
-    public function getArticle()
+    public function getArtikel()
     {
-        return $this->article;
+        return $this->artikel;
     }
 
     /**
-     * Set author
+     * Set autor
      *
-     * @param string $author
+     * @param string $autor
      *
      * @return News
      */
-    public function setAuthor($author)
+    public function setAutor($autor)
     {
-        $this->author = $author;
+        $this->autor = $autor;
 
         return $this;
     }
 
     /**
-     * Get author
+     * Get autor
      *
      * @return string
      */
-    public function getAuthor()
+    public function getAutor()
     {
-        return $this->author;
+        return $this->autor;
     }
 
     /**
-     * Set publicationdate
+     * Set veroeffentlichungsdatum
      *
-     * @param \DateTime $publicationdate
+     * @param \DateTime $veroeffentlichungsdatum
      *
      * @return News
      */
-    public function setPublicationdate($publicationdate)
+    public function setVeroeffentlichungsdatum($veroeffentlichungsdatum)
     {
-        $this->publicationdate = $publicationdate;
+        $this->veroeffentlichungsdatum = $veroeffentlichungsdatum;
 
         return $this;
     }
 
     /**
-     * Get publicationdate
+     * Get veroeffentlichungsdatum
      *
      * @return \DateTime
      */
-    public function getPublicationdate()
+    public function getVeroeffentlichungsdatum()
     {
-        return $this->publicationdate;
+        return $this->veroeffentlichungsdatum;
+    }
+
+    /**
+     * Set artikelname
+     *
+     * @param string artikelname
+     *
+     * @return News
+     */
+    public function setArtikelname($artikelname)
+    {
+        $this->artikelname = $artikelname;
+
+        return $this;
+    }
+
+    /**
+     * Get artikelname
+     *
+     * @return string
+     */
+    public function getArtikelname()
+    {
+        return $this->artikelname;
     }
 }
 

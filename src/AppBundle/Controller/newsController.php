@@ -18,13 +18,13 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class newsController extends Controller
 {
 
-    public function listAction()
+    public function anzeigenAction()
     {
         $news = $this->getDoctrine()
             ->getRepository('AppBundle:News')
@@ -35,31 +35,39 @@ class newsController extends Controller
         ));
     }
 
-    public function createAction(Request $request)
+    public function erstellenAction(Request $request)
     {
         $news = new news;
 
         $form =$this->createFormBuilder($news)
-            ->add('article', TextareaType::class, array('attr' => array('class' => 'form-control', 'style' =>'margin-bottom:15px')))
-            ->add('author', TextType::class, array('attr' => array('class' => 'form-control', 'style' =>'margin-bottom:15px')))
-            ->add('publicationdate', DateTimeType::class, array('attr' => array('class' => 'formcontrol', 'style' =>'margin-bottom:15px')))
-            ->add('save', SubmitType::class, array('label' => 'Create News', 'attr' => array('class' => 'btn btn-primary', 'style' =>'margin-bottom:15px')))
+            ->add('artikelname', TextType::class, array('attr' => array('class' => 'form-control', 'style' =>'margin-bottom:15px')))
+            ->add('artikel', TextareaType::class, array('attr' => array('class' => 'form-control', 'style' =>'margin-bottom:15px')))
+            ->add('autor', TextType::class, array('attr' => array('class' => 'form-control', 'style' =>'margin-bottom:15px')))
+
+            ->add('veroeffentlichungsdatum', DateType::class, array(
+                'placeholder' => array(
+                    'year' => 'Jahr', 'month' => 'Monat', 'day' => 'Tag'),
+                'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+
+            ->add('save', SubmitType::class, array('label' => 'News veröffentlichen', 'attr' => array('class' => 'btn btn-primary', 'style' =>'margin-bottom:15px')))
             ->getForm();
 
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
             //getData
-            $article = $form['article']->getData();
-            $author = $form['author']->getData();
-            $publicationdate = $form['publicationdate']->getData();
+            $artikelname = $form['artikelname']->getData();
+            $artikel = $form['artikel']->getData();
+            $autor = $form['autor']->getData();
+            $veroeffentlichungsdatum = $form['veroeffentlichungsdatum']->getData();
 
-            $now = new\DateTime('now');
 
-            $news->setArticle($article);
-            $news->setAuthor($author);
-            $news->setPublicationdate($publicationdate);
-            $news->setCreateDate($now);
+
+            $news->setArtikelname($artikelname);
+            $news->setArtikel($artikel);
+            $news->setAutor($autor);
+            $news->setVeroeffentlichungsdatum($veroeffentlichungsdatum);
+
 
             $em = $this->getDoctrine()->getManager();
 
@@ -68,13 +76,13 @@ class newsController extends Controller
 
             $this->addFlash(
                 'notice',
-                'News Added'
+                'News veröfffentlicht!'
             );
 
-            return $this->redirectToRoute('news_list');
+            return $this->redirectToRoute('News_anzeigen');
         }
 
-        return $this->render('news/create.html.twig', array(
+        return $this->render('news/erstellen.html.twig', array(
             'form' => $form->createView()
         ));
     }

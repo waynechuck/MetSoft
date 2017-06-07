@@ -1,10 +1,18 @@
 {% extends 'dashboard.html.twig' %}
 
 {% block body %}
+
+    <div class="panel-heading">
+
+        <h3 class="panel-title"><center>Übersicht der aktuelle ToDo´s</center></h3>
+    </div>
+
     <div class="jumbotron">
 
- <h2 class="page-header">Aktuelle Todos</h2>
-   <table class="table table-striped">
+        <a class="btn btn-primary" href="/dashboard/todos/erstellen">Todo´s hinzufügen</a>
+
+
+        <table class="table table-striped">
    <thead>
     <tr>
         <th>ID-Nummer</th>
@@ -23,17 +31,16 @@
          <a href="/dashboard/todos/details/{{ todo.id }}" class="btn btn-success">
             Details
          </a>
-        <a href="/dashboard/todos/edit/{{ todo.id }}" class="btn btn-default">
+        <a href="/dashboard/todos/bearbeiten/{{ todo.id }}" class="btn btn-default">
             Bearbeiten
         </a>
-        <a href="/dashboard/todos/delete/{{ todo.id }}" class="btn btn-danger">
+        <a href="/dashboard/todos/löschen/{{ todo.id }}" class="btn btn-danger">
             Löschen
         </a>
     </td>
    </tr>
    {% endfor %}
 
-   <a class="btn btn-default" href="/dashboard/todos/create">Todo´s hinzufügen</a>
    </tbody>
   </table>
 
