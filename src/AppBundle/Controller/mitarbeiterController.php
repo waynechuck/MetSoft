@@ -224,4 +224,20 @@ class mitarbeiterController extends Controller
         ));
     }
 
+    public function löschenAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $mitarbeiter = $em->getRepository('AppBundle:Mitarbeiter')->find($id);
+
+        $em->remove($mitarbeiter);
+        $em->flush();
+
+        $this->addFlash(
+            'notice',
+            'Mitarbeiter gelöscht!'
+        );
+
+        return $this->redirectToRoute('Mitarbeiter_anzeigen');
+    }
+
 }

@@ -74,7 +74,7 @@ Mitarbeiter_details:
     defaults: { _controller: AppBundle:mitarbeiter:details }
 
 Mitarbeiter_löschen:
-    path:     /dashboard/mitarbeiter/löschen
+    path:     /dashboard/mitarbeiter/löschen/{id}
     defaults: { _controller: AppBundle:mitarbeiter:löschen }
 
 
