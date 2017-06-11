@@ -1,19 +1,20 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Michael Trotzer
- * Date: 07.06.2017
- * Time: 21:06
+ * User: Micha
+ * Date: 08.06.2017
+ * Time: 06:36
  */
 
 namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class finanzenController extends Controller
+class kundenController extends Controller
 {
+
     public function anzeigenAction()
     {
-        return $this->render('finanzen/index.html.twig');
+        return $this->render('kunden/index.html.twig');
     }
 }

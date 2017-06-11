@@ -31,20 +31,28 @@ class todoController extends Controller
 
     public function anzeigenAction()
     {
+        //@TODO Typo in word
         $todos = $this->getDoctrine()
             ->getRepository('AppBundle:Todo')
             ->findAll();
 
-        return $this->render('todo/anzeigen.html.twig', array(
+        //@TODO kurze array Syntax
+        return $this->render('todo/index.html.twig', array(
             'todos' => $todos
         ));
     }
 
     public function erstellenAction(Request $request)
     {
+        /**
+        * @TODO Der richtige weg wäre:
+        * - @EntityManager holen
+        * - @EntityManager::getRepository gibt uns die Klasse
+        */
         $todo = new Todo;
 
         $form =$this->createFormBuilder($todo)
+            //@TODO kurze array Syntax
             ->add('name', TextType::class, array('attr' => array('class' => 'form-control', 'style' =>'margin-bottom:15px')))
             ->add('category', TextType::class, array('attr' => array('class' => 'form-control', 'style' =>'margin-bottom:15px')))
             ->add('description', TextareaType::class, array('attr' => array('class' => 'form-control', 'style' =>'margin-bottom:15px')))
@@ -63,6 +71,7 @@ class todoController extends Controller
             $priority = $form['priority']->getData();
             $dueDate = $form['dueDate']->getData();
 
+            //@TODO ein Leerzeichen fehlt hier
             $now = new\DateTime('now');
 
             $todo->setName($name);
@@ -82,6 +91,7 @@ class todoController extends Controller
                 'Todo Added'
             );
 
+            //@TODO nur ein return pro Methode
             return $this->redirectToRoute('Todos_anzeigen');
         }
 
@@ -175,7 +185,7 @@ class todoController extends Controller
             'notice',
             'Todo Removed'
         );
-
+        //@TODO nur ein return pro Methode
         return $this->redirectToRoute('Todos_anzeigen');
     }
 }

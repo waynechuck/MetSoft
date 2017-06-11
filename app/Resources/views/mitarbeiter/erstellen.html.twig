@@ -25,6 +25,7 @@
             <!-- linke Spalte -->
             <div class="col-md-6">
                 <div>
+                    {#@TODO kann man die 3 nicht in {{ form() }} zusammenfassen?#}
                     {{ form_label(form.vorname) }}
                     {{ form_errors(form.vorname) }}
                     {{ form_widget(form.vorname) }}

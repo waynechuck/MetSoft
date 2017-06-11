@@ -17,6 +17,7 @@ class Todo
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
+     //@TODO auto_increment ist evil aufm PK, nicht verwenden
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
@@ -44,7 +45,7 @@ class Todo
 
     /**
      * @var string
-     *
+     //@TODO priority als string?
      * @ORM\Column(name="priority", type="string", length=255)
      */
     private $priority;

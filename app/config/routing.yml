@@ -3,23 +3,23 @@ app:
     type: annotation
 
 # Frontend der Anwendung im webController definiert!
-Startseite:
+homepage:
     path:     /
-    defaults: { _controller: AppBundle:web:startseite }
+    defaults: { _controller: AppBundle:Website:homepage }
 
-Konatakt:
-    path:     /kontakt
-    defaults: { _controller: AppBundle:web:kontakt }
+contact:
+    path:     /contact
+    defaults: { _controller: AppBundle:Website:contact }
 
-Anmelden:
-    path:     /anmelden
-    defaults: { _controller: AppBundle:web:anmelden }
+sign_in:
+    path:     /sign_in
+    defaults: { _controller: AppBundle:Website:sign_in }
 
 # Backend der Anwendung definiert!
 
 Dashboard:
     path:     /dashboard
-    defaults: { _controller: AppBundle:web:dashboard }
+    defaults: { _controller: AppBundle:Website:dashboard }
 
 # Todo´s-Application
 
@@ -47,7 +47,7 @@ Todos_delete:
 
 login:
     path:     /login
-    defaults: { _controller: AppBundle:security:login }
+    defaults: { _controller: AppBundle:security:anmelden }
 
 # Newsseite zum Üben, warten auf Sven´s Aufgaben! Funktioniert!
 
@@ -87,6 +87,17 @@ Finanzen_anzeigen:
     path:     /dashboard/finanzen
     defaults: { _controller: AppBundle:finanzen:anzeigen }
 
+# Projekte
+
+Projekte_anzeigen:
+    path:     /dashboard/projekte
+    defaults: { _controller: AppBundle:projekte:anzeigen}
+
+# Kunden
+
+Kunden_anzeigen:
+    path:     /dashboard/kunden
+    defaults: { _controller: AppBundle:kunden:anzeigen}
 
 
 

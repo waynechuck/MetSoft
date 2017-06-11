@@ -17,6 +17,8 @@ class News
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
+     //@TODO auto_increment ist evil aufm PK, nicht verwenden
+     //@TODO Besser ist, UUID erzeugen und per md5 hash eine (DB)unique id erzeugen
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
@@ -30,16 +32,17 @@ class News
 
     /**
      * @var string
-     *
+    //@TODO author was? Der name des Autors? Das wäre schlecht, weil du so den Autor nicht spezifizieren kannst -> Neue Tabelle (könnte ja zb auch ein Mitarbeiter sein...) für Autor und hier nur die id angeben
      * @ORM\Column(name="autor", type="string", length=255)
      */
     private $autor;
 
     /**
      * @var \DateTime
-     *
+    //@TODO typo in word, entweder camelCase oder underscore_case (underscore_case ist besser für DB)
      * @ORM\Column(name="veroeffentlichungsdatum", type="datetimetz")
      */
+    //Todo typo in word..
     private $veroeffentlichungsdatum;
 
     /**
@@ -70,7 +73,7 @@ class News
     public function setArtikel($artikel)
     {
         $this->artikel = $artikel;
-
+        //@TODO warum returnst du hier $this wenn du am Ende noch nicht chainst?
         return $this;
     }
 
@@ -93,6 +96,7 @@ class News
      */
     public function setAutor($autor)
     {
+        //@TODO warum returnst du hier $this wenn du am Ende noch nicht chainst?
         $this->autor = $autor;
 
         return $this;
@@ -105,6 +109,7 @@ class News
      */
     public function getAutor()
     {
+        //@TODO warum returnst du hier $this wenn du am Ende noch nicht chainst?
         return $this->autor;
     }
 
@@ -117,6 +122,7 @@ class News
      */
     public function setVeroeffentlichungsdatum($veroeffentlichungsdatum)
     {
+        //@TODO warum returnst du hier $this wenn du am Ende noch nicht chainst?
         $this->veroeffentlichungsdatum = $veroeffentlichungsdatum;
 
         return $this;

@@ -21,6 +21,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 
++//@TODO Klassenname groß
 class newsController extends Controller
 {
 
@@ -30,13 +31,20 @@ class newsController extends Controller
             ->getRepository('AppBundle:News')
             ->findAll();
 
-        return $this->render('news/anzeigen.html.twig', array(
+        //@TODO die gibt es nicht
+        return $this->render('news/index.html.twig', array(
             'news' => $news
         ));
     }
 
     public function erstellenAction(Request $request)
     {
+        /**
+        * @TODO Der richtige weg wäre:
+        * - @EntityManager holen
+        * - @EntityManager::getRepository gibt uns die Klasse
+        */
+
         $news = new news;
 
         $form =$this->createFormBuilder($news)
@@ -79,6 +87,8 @@ class newsController extends Controller
                 'News veröfffentlicht!'
             );
 
+            //@TODO nur ein return pro Methode
+            //@TODO die Route gibt es nicht
             return $this->redirectToRoute('News_anzeigen');
         }
 

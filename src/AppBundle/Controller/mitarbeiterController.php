@@ -28,34 +28,41 @@ use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 
+//@TODO KlassenName groß, wir sind im englischen -> keine deutschen Bezeichner
 class mitarbeiterController extends Controller
 {
+    //@TODO Schreibfehler und englisch bitte
     /**
      * anzeigenAction wird hier definiert!
      * Mitarbeiter werden hier angezeigt!
      */
 
+    //@TODO englisch
     public function anzeigenAction()
     {
+        //@TODO englisch
         $mitarbeiter = $this->getDoctrine()
             ->getRepository('AppBundle:Mitarbeiter')
             ->findAll();
 
-        return $this->render('mitarbeiter/anzeigen.html.twig', array(
+        return $this->render('mitarbeiter/index.html.twig', array(
             'mitarbeiter' => $mitarbeiter
         ));
     }
 
+    //@TODO englisch (in der gesamten Methode) und Leerzeile zwischen den Methoden
     /**
      * mitarbeiterAction wird hier definiert!
      */
 
+    //@TODO englisch
     public function erstellenAction(Request $request)
     {
         $mitarbeiter = new mitarbeiter;
-
+        //@TODO wer soll hier durchschauen? Versuch das mal übersichtlicher zu gestalten
         $form = $this->createFormBuilder($mitarbeiter)
             //TextType:
+            //@TODO wenn wir php7 vorraussetzen, dann können wir auch die kurze array Syntax verwenden
             ->add('vorname', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             ->add('nachname', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             ->add('strasse', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
@@ -198,7 +205,7 @@ class mitarbeiterController extends Controller
                 'notice',
                 'Der Mitarbeiter wurde erstellt!'
             );
-
+            //@TODO nur ein ausgang aus jeder Methode (hir gibt es 2 returns)
             return $this->redirectToRoute('Mitarbeiter_anzeigen');
         }
 
@@ -210,7 +217,7 @@ class mitarbeiterController extends Controller
     /**
      * detailsAction wird hier definiert!
      */
-
+    //@TODO englisch
     public function detailsAction($id)
     {
 
@@ -226,7 +233,7 @@ class mitarbeiterController extends Controller
     /**
      * löschenAction wird hier definiert!
      */
-
+    //@TODO englisch
     public function löschenAction($id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -246,7 +253,7 @@ class mitarbeiterController extends Controller
     /**
      * bearbeitungAction wird hier definiert!
      */
-
+    //@TODO englisch
     public function bearbeitenAction($id, Request $request)
     {
         $mitarbeiter = $this->getDoctrine()

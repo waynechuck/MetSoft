@@ -64,10 +64,10 @@ echo PHP_EOL;
 echo_style('title', 'Note');
 echo '  The command console could use a different php.ini file'.PHP_EOL;
 echo_style('title', '~~~~');
-echo '  than the one used with your web server. To be on the'.PHP_EOL;
-echo '      safe side, please check the requirements from your web'.PHP_EOL;
+echo '  than the one used with your website server. To be on the'.PHP_EOL;
+echo '      safe side, please check the requirements from your website'.PHP_EOL;
 echo '      server using the ';
-echo_style('yellow', 'web/config.php');
+echo_style('yellow', 'website/config.php');
 echo ' script.'.PHP_EOL;
 echo PHP_EOL;
 
