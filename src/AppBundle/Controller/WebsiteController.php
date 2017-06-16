@@ -12,22 +12,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class WebsiteController extends Controller
 {
-    //@TODO englisch
+
     public function homepageAction()
     {
         return $this->render('website/homepage.html.twig');
     }
-    //@TODO englisch
+
     public function contactAction()
     {
         return $this->render('website/contact.html.twig');
     }
-    //@TODO englisch
+
     public function sign_inAction()
     {
         return $this->render('website/sign_in.html.twig');
     }
-    //@TODO englisch
+
     public function dashboardAction()
     {
         return $this->render('dashboard/index.html.twig');

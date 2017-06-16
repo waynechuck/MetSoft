@@ -12,9 +12,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 //@TODO KlassenName groß
-class securityController extends Controller
+class SecurityController extends Controller
 {
-    public function anmeldenAction(Request $request)
+    public function indexAction(Request $request)
     {
         $authenticationUtils = $this->get('security.authentication_utils');
 

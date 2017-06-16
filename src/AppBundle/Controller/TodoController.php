@@ -26,10 +26,10 @@ use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class todoController extends Controller
+class TodoController extends Controller
 {
 
-    public function anzeigenAction()
+    public function indexAction()
     {
         //@TODO Typo in word
         $todos = $this->getDoctrine()
@@ -42,7 +42,7 @@ class todoController extends Controller
         ));
     }
 
-    public function erstellenAction(Request $request)
+    public function createAction(Request $request)
     {
         /**
         * @TODO Der richtige weg wäre:
@@ -95,12 +95,12 @@ class todoController extends Controller
             return $this->redirectToRoute('Todos_anzeigen');
         }
 
-        return $this->render('todo/erstellen.html.twig', array(
+        return $this->render('todo/create.html.twig', array(
             'form' => $form->createView()
         ));
     }
 
-    public function bearbeitenAction($id, Request $request)
+    public function editAction($id, Request $request)
     {
         $todo = $this->getDoctrine()
             ->getRepository('AppBundle:Todo')
@@ -156,7 +156,7 @@ class todoController extends Controller
             return $this->redirectToRoute('Totos_anzeigen');
         }
 
-        return $this->render('todo/bearbeiten.html.twig', array(
+        return $this->render('todo/edit.html.twig', array(
             'todo' => $todo,
             'form' => $form->createView()
         ));
@@ -173,7 +173,7 @@ class todoController extends Controller
         ));
     }
 
-    public function löschenAction($id)
+    public function deleteAction($id)
     {
         $em = $this->getDoctrine()->getManager();
         $todo = $em->getRepository('AppBundle:Todo')->find($id);

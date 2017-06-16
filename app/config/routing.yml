@@ -17,87 +17,87 @@ sign_in:
 
 # Backend der Anwendung definiert!
 
-Dashboard:
+dashboard:
     path:     /dashboard
     defaults: { _controller: AppBundle:Website:dashboard }
 
 # Todo´s-Application
 
-Todos_anzeigen:
+todo_index:
     path:     /dashboard/todos
-    defaults: { _controller: AppBundle:todo:anzeigen }
+    defaults: { _controller: AppBundle:Todo:index }
 
-Todos_erstellen:
-    path:     /dashboard/todos/erstellen
-    defaults: { _controller: AppBundle:todo:erstellen }
+todo_create:
+    path:     /dashboard/todos/create
+    defaults: { _controller: AppBundle:Todo:create }
 
-Todos_bearbeiten:
-    path:     /dashboard/todos/bearbeiten/{id}
-    defaults: { _controller: AppBundle:todo:bearbeiten }
+todo_edit:
+    path:     /dashboard/todos/edit/{id}
+    defaults: { _controller: AppBundle:Todo:edit }
 
-Todos_details:
+todo_details:
     path:     /dashboard/todos/details/{id}
-    defaults: { _controller: AppBundle:todo:details }
+    defaults: { _controller: AppBundle:Todo:details }
 
-Todos_delete:
-    path:     /dashboard/todos/löschen/{id}
-    defaults: { _controller: AppBundle:todo:löschen }
+todo_delete:
+    path:     /dashboard/todos/delete/{id}
+    defaults: { _controller: AppBundle:Todo:delete }
 
 # Anmeldebereich! Teststatus
 
 login:
     path:     /login
-    defaults: { _controller: AppBundle:security:anmelden }
+    defaults: { _controller: AppBundle:Security:index }
 
 # Newsseite zum Üben, warten auf Sven´s Aufgaben! Funktioniert!
 
-News_anzeigen:
+news_index:
     path:     /dashboard/news
-    defaults: { _controller: AppBundle:news:anzeigen }
+    defaults: { _controller: AppBundle:News:index }
 
-News_erstellen:
+news_create:
     path:     /dashboard/news/erstellen
-    defaults: { _controller: AppBundle:news:erstellen }
+    defaults: { _controller: AppBundle:News:create }
 
 #Mitarbeiter
 
-Mitarbeiter_anzeigen:
-    path:     /dashboard/mitarbeiter
-    defaults: { _controller: AppBundle:mitarbeiter:anzeigen }
+employee_index:
+    path:     /dashboard/employee
+    defaults: { _controller: AppBundle:Employee:index }
 
-Mitarbeiter_erstellen:
-    path:     /dashboard/mitarbeiter/erstellen
-    defaults: { _controller: AppBundle:mitarbeiter:erstellen }
+employee_create:
+    path:     /dashboard/employee/create
+    defaults: { _controller: AppBundle:Employee:create }
 
-Mitarbeiter_bearbeiten:
-    path:     /dashboard/mitarbeiter/bearbeiten/{id}
-    defaults: { _controller: AppBundle:mitarbeiter:bearbeiten }
+employee_edit:
+    path:     /dashboard/employee/edit/{id}
+    defaults: { _controller: AppBundle:Employee:edit }
 
-Mitarbeiter_details:
-    path:     /dashboard/mitarbeiter/details/{id}
-    defaults: { _controller: AppBundle:mitarbeiter:details }
+employee_details:
+    path:     /dashboard/employee/details/{id}
+    defaults: { _controller: AppBundle:Employee:details }
 
-Mitarbeiter_löschen:
-    path:     /dashboard/mitarbeiter/löschen/{id}
-    defaults: { _controller: AppBundle:mitarbeiter:löschen }
+employee_delete:
+    path:     /dashboard/employee/delete/{id}
+    defaults: { _controller: AppBundle:Employee:delete }
 
 # Finanzen
 
-Finanzen_anzeigen:
-    path:     /dashboard/finanzen
-    defaults: { _controller: AppBundle:finanzen:anzeigen }
+finance_index:
+    path:     /dashboard/finance
+    defaults: { _controller: AppBundle:Finance:index }
 
 # Projekte
 
-Projekte_anzeigen:
-    path:     /dashboard/projekte
-    defaults: { _controller: AppBundle:projekte:anzeigen}
+project_index:
+    path:     /dashboard/project
+    defaults: { _controller: AppBundle:Project:index}
 
 # Kunden
 
-Kunden_anzeigen:
-    path:     /dashboard/kunden
-    defaults: { _controller: AppBundle:kunden:anzeigen}
+customer_index:
+    path:     /dashboard/customer
+    defaults: { _controller: AppBundle:Customer:index}
 
 
 

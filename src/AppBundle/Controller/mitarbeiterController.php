@@ -209,7 +209,7 @@ class mitarbeiterController extends Controller
             return $this->redirectToRoute('Mitarbeiter_anzeigen');
         }
 
-        return $this->render('mitarbeiter/erstellen.html.twig', array(
+        return $this->render('mitarbeiter/create.html.twig', array(
             'form' => $form->createView()
         ));
     }
@@ -437,7 +437,7 @@ class mitarbeiterController extends Controller
             return $this->redirectToRoute('Mitarbeiter_anzeigen');
         }
 
-        return $this->render('mitarbeiter/erstellen.html.twig', array(
+        return $this->render('mitarbeiter/create.html.twig', array(
             'mitarbeiter' => $mitarbeiter,
             'form' => $form->createView()
         ));

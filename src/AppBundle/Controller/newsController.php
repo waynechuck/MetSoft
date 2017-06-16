@@ -21,7 +21,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 
-+//@TODO Klassenname groß
+//@TODO Klassenname groß
 class newsController extends Controller
 {
 
@@ -92,7 +92,7 @@ class newsController extends Controller
             return $this->redirectToRoute('News_anzeigen');
         }
 
-        return $this->render('news/erstellen.html.twig', array(
+        return $this->render('news/create.html.twig', array(
             'form' => $form->createView()
         ));
     }
