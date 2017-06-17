@@ -21,21 +21,21 @@
             </tr>
             </thead>
             <tbody>
-            {% for mitarbeiter in mitarbeiter %}
+            {% for employee in employee %}
                 <tr>
-                    <th scope="row"> {{ mitarbeiter.id }} </th>
-                    <td> {{ mitarbeiter.vorname }} </td>
-                    <td> {{ mitarbeiter.nachname}} </td>
-                    <td> {{ mitarbeiter.telefon }} </td>
-                    <td> {{ mitarbeiter.position}} </td>
+                    <th scope="row"> {{ employee.id }} </th>
+                    <td> {{ employee.vorname }} </td>
+                    <td> {{ employee.nachname}} </td>
+                    <td> {{ employee.telefon }} </td>
+                    <td> {{ employee.position}} </td>
                     <td>
-                        <a href="/dashboard/mitarbeiter/details/{{ mitarbeiter.id }}" class="btn btn-success">
+                        <a href="/dashboard/mitarbeiter/details/{{ employee.id }}" class="btn btn-success">
                             Details
                         </a>
-                        <a href="/dashboard/mitarbeiter/bearbeiten/{{ mitarbeiter.id }}" class="btn btn-info">
+                        <a href="/dashboard/mitarbeiter/bearbeiten/{{ employee.id }}" class="btn btn-info">
                             Bearbeiten
                         </a>
-                        <a href="/dashboard/mitarbeiter/löschen/{{ mitarbeiter.id }}" class="btn btn-danger">
+                        <a href="/dashboard/mitarbeiter/löschen/{{ employee.id }}" class="btn btn-danger">
                             Löschen
                         </a>
                     </td>

@@ -1,0 +1,15 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block body %}
+    {#@TODO keine hartgecodeten URLS verwenden#}
+    <a class="btn btn-default" href="#">Zurück zur Mitarbeiterübersicht</a>
+    <hr>
+
+    <h2 class="page-header">{{ employee.vorname }}</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Category: {{ employee.nachname }}</li>
+
+    </ul>
+
+
+{% endblock %}

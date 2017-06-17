@@ -32,7 +32,7 @@ class News
 
     /**
      * @var string
-    //@TODO author was? Der name des Autors? Das wäre schlecht, weil du so den Autor nicht spezifizieren kannst -> Neue Tabelle (könnte ja zb auch ein Mitarbeiter sein...) für Autor und hier nur die id angeben
+    //@TODO author was? Der name des Autors? Das wäre schlecht, weil du so den Autor nicht spezifizieren kannst -> Neue Tabelle (könnte ja zb auch ein Employee sein...) für Autor und hier nur die id angeben
      * @ORM\Column(name="autor", type="string", length=255)
      */
     private $autor;

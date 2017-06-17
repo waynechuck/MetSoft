@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Mitarbeiter
+ * Employee
  *
- * @ORM\Table(name="mitarbeiter")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\MitarbeiterRepository")
+ * @ORM\Table(name="employee")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\EmployeeRepository")
  */
-class Mitarbeiter
+class Employee
 {
     /**
      * @var int
@@ -211,7 +211,7 @@ class Mitarbeiter
      *
      * @param string $vorname
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setVorname($vorname)
     {
@@ -235,7 +235,7 @@ class Mitarbeiter
      *
      * @param string $nachname
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setNachname($nachname)
     {
@@ -259,7 +259,7 @@ class Mitarbeiter
      *
      * @param string $strasse
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setStrasse($strasse)
     {
@@ -283,7 +283,7 @@ class Mitarbeiter
      *
      * @param integer $hausnummer
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setHausnummer($hausnummer)
     {
@@ -307,7 +307,7 @@ class Mitarbeiter
      *
      * @param integer $telefon
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setTelefon($telefon)
     {
@@ -331,7 +331,7 @@ class Mitarbeiter
      *
      * @param integer $postleitzahl
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setPostleitzahl($postleitzahl)
     {
@@ -355,7 +355,7 @@ class Mitarbeiter
      *
      * @param string $ort
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setOrt($ort)
     {
@@ -379,7 +379,7 @@ class Mitarbeiter
      *
      * @param \DateTime $geburtsdatum
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setGeburtsdatum($geburtsdatum)
     {
@@ -403,7 +403,7 @@ class Mitarbeiter
      *
      * @param string $geburtsort
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setGeburtsort($geburtsort)
     {
@@ -427,7 +427,7 @@ class Mitarbeiter
      *
      * @param string $personalausweissnummer
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setPersonalausweissnummer($personalausweissnummer)
     {
@@ -451,7 +451,7 @@ class Mitarbeiter
      *
      * @param string $familienstand
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setFamilienstand($familienstand)
     {
@@ -475,7 +475,7 @@ class Mitarbeiter
      *
      * @param string $steueridentifiktationsnummer
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setSteueridentifiktationsnummer($steueridentifiktationsnummer)
     {
@@ -499,7 +499,7 @@ class Mitarbeiter
      *
      * @param string $sozialversicherungsausweiss
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setSozialversicherungsausweiss($sozialversicherungsausweiss)
     {
@@ -523,7 +523,7 @@ class Mitarbeiter
      *
      * @param string $krankenkasse
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setKrankenkasse($krankenkasse)
     {
@@ -547,7 +547,7 @@ class Mitarbeiter
      *
      * @param integer $steuerklasse
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setSteuerklasse($steuerklasse)
     {
@@ -571,7 +571,7 @@ class Mitarbeiter
      *
      * @param string $bruttoarbeitslohn
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setBruttoarbeitslohn($bruttoarbeitslohn)
     {
@@ -595,7 +595,7 @@ class Mitarbeiter
      *
      * @param string $arbeitsstunden
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setArbeitsstunden($arbeitsstunden)
     {
@@ -619,7 +619,7 @@ class Mitarbeiter
      *
      * @param string $bildungsabschluss
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setBildungsabschluss($bildungsabschluss)
     {
@@ -643,7 +643,7 @@ class Mitarbeiter
      *
      * @param string $abteilung
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setAbteilung($abteilung)
     {
@@ -667,7 +667,7 @@ class Mitarbeiter
      *
      * @param string $position
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setPosition($position)
     {
@@ -691,7 +691,7 @@ class Mitarbeiter
      *
      * @param \DateTime $einstellungsdatum
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setEinstellungsdatum($einstellungsdatum)
     {
@@ -715,7 +715,7 @@ class Mitarbeiter
      *
      * @param string $bewerbung
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setBewerbung($bewerbung)
     {
@@ -739,7 +739,7 @@ class Mitarbeiter
      *
      * @param string $arbeitszeugnis
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setArbeitszeugnis($arbeitszeugnis)
     {
@@ -763,7 +763,7 @@ class Mitarbeiter
      *
      * @param string $foto
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setFoto($foto)
     {
@@ -786,7 +786,7 @@ class Mitarbeiter
      *
      * @param string $email
      *
-     * @return Mitarbeiter
+     * @return Employee
      */
     public function setEmail($email)
     {

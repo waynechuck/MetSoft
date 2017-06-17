@@ -59,7 +59,7 @@ news_create:
     path:     /dashboard/news/erstellen
     defaults: { _controller: AppBundle:News:create }
 
-#Mitarbeiter
+#Employee
 
 employee_index:
     path:     /dashboard/employee

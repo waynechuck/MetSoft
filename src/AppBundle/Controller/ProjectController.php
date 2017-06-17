@@ -10,11 +10,11 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class kundenController extends Controller
+class ProjectController extends Controller
 {
 
-    public function anzeigenAction()
+    public function indexAction()
     {
-        return $this->render('kunden/index.html.twig');
+        return $this->render('project/index.html.twig');
     }
 }

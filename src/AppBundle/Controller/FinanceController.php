@@ -10,10 +10,10 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class finanzenController extends Controller
+class FinanceController extends Controller
 {
-    public function anzeigenAction()
+    public function indexAction()
     {
-        return $this->render('finanzen/index.html.twig');
+        return $this->render('finance/index.html.twig');
     }
 }

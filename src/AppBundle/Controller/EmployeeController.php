@@ -12,7 +12,7 @@ namespace AppBundle\Controller;
  * Include everything else
  */
 
-use AppBundle\Entity\Mitarbeiter;
+use AppBundle\Entity\Employee;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -29,38 +29,31 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 
 //@TODO KlassenName groß, wir sind im englischen -> keine deutschen Bezeichner
-class mitarbeiterController extends Controller
+class EmployeeController extends Controller
 {
     //@TODO Schreibfehler und englisch bitte
-    /**
-     * anzeigenAction wird hier definiert!
-     * Mitarbeiter werden hier angezeigt!
-     */
 
     //@TODO englisch
-    public function anzeigenAction()
+    public function indexAction()
     {
         //@TODO englisch
-        $mitarbeiter = $this->getDoctrine()
-            ->getRepository('AppBundle:Mitarbeiter')
+        $employee = $this->getDoctrine()
+            ->getRepository('AppBundle:Employee')
             ->findAll();
 
-        return $this->render('mitarbeiter/index.html.twig', array(
-            'mitarbeiter' => $mitarbeiter
+        return $this->render('employee/index.html.twig', array(
+            'employee' => $employee
         ));
     }
 
     //@TODO englisch (in der gesamten Methode) und Leerzeile zwischen den Methoden
-    /**
-     * mitarbeiterAction wird hier definiert!
-     */
 
     //@TODO englisch
-    public function erstellenAction(Request $request)
+    public function createAction(Request $request)
     {
-        $mitarbeiter = new mitarbeiter;
+        $employee = new Employee;
         //@TODO wer soll hier durchschauen? Versuch das mal übersichtlicher zu gestalten
-        $form = $this->createFormBuilder($mitarbeiter)
+        $form = $this->createFormBuilder($employee)
             //TextType:
             //@TODO wenn wir php7 vorraussetzen, dann können wir auch die kurze array Syntax verwenden
             ->add('vorname', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
@@ -102,7 +95,7 @@ class mitarbeiterController extends Controller
                 'Name der Abteilung1' => 'Name der Abteilung1'),
                 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             ->add('position', ChoiceType::class, array('choices' => array(
-                'Mitarbeiter' => 'Mitarbeiter',
+                'Employee' => 'Employee',
                 'Teamleiter' => 'Teamleiter',
                 'Kitaleiter' => 'Kitaleiter',
                 'Geschäftsführer' => 'Geschäftsführer'),
@@ -128,7 +121,7 @@ class mitarbeiterController extends Controller
                     'day' => 'Tag'),
                 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             // Bestätigungbutton um das Formular zu übernehmen
-            ->add('save', SubmitType::class, array('label' => 'Erstelle Mitarbeiter', 'attr' => array('class' => 'btn btn-primary', 'style' => 'margin-bottom:15px')))
+            ->add('save', SubmitType::class, array('label' => 'Erstelle Employee', 'attr' => array('class' => 'btn btn-primary', 'style' => 'margin-bottom:15px')))
             ->getForm();
 
         $form->handleRequest($request);
@@ -167,49 +160,49 @@ class mitarbeiterController extends Controller
             $email = $form ['email']->getData();
 
             //data
-            $mitarbeiter->setVorname($vorname);
-            $mitarbeiter->setNachname($nachname);
-            $mitarbeiter->setStrasse($strasse);
-            $mitarbeiter->setHausnummer($hausnummer);
-            $mitarbeiter->setPostleitzahl($postleitzahl);
-            $mitarbeiter->setOrt($ort);
-            $mitarbeiter->setGeburtsdatum($geburtsdatum);
-            $mitarbeiter->setGeburtsort($geburtsort);
-            $mitarbeiter->setFamilienstand($familienstand);
-            $mitarbeiter->setPersonalausweissnummer($personalausweissnummer);
-            $mitarbeiter->setTelefon($telefon);
+            $employee->setVorname($vorname);
+            $employee->setNachname($nachname);
+            $employee->setStrasse($strasse);
+            $employee->setHausnummer($hausnummer);
+            $employee->setPostleitzahl($postleitzahl);
+            $employee->setOrt($ort);
+            $employee->setGeburtsdatum($geburtsdatum);
+            $employee->setGeburtsort($geburtsort);
+            $employee->setFamilienstand($familienstand);
+            $employee->setPersonalausweissnummer($personalausweissnummer);
+            $employee->setTelefon($telefon);
 
             // Unternehmensdaten
-            $mitarbeiter->setAbteilung($abteilung);
-            $mitarbeiter->setPosition($position);
-            $mitarbeiter->setEinstellungsdatum($einstellungsdatum);
-            $mitarbeiter->setSteuerklasse($steuerklasse);
-            $mitarbeiter->setSteueridentifiktationsnummer($steueridentifiktationsnummer);
-            $mitarbeiter->setArbeitsstunden($arbeitsstunden);
-            $mitarbeiter->setKrankenkasse($krankenkasse);
-            $mitarbeiter->setBildungsabschluss($bildungsabschluss);
+            $employee->setAbteilung($abteilung);
+            $employee->setPosition($position);
+            $employee->setEinstellungsdatum($einstellungsdatum);
+            $employee->setSteuerklasse($steuerklasse);
+            $employee->setSteueridentifiktationsnummer($steueridentifiktationsnummer);
+            $employee->setArbeitsstunden($arbeitsstunden);
+            $employee->setKrankenkasse($krankenkasse);
+            $employee->setBildungsabschluss($bildungsabschluss);
             // Alle anderen zum einordnen:
-            $mitarbeiter->setSozialversicherungsausweiss($sozialversicherungsausweiss);
-            $mitarbeiter->setBruttoarbeitslohn($bruttoarbeitslohn);
-            $mitarbeiter->setBewerbung($bewerbung);
-            $mitarbeiter->setFoto($foto);
-            $mitarbeiter->setArbeitszeugnis($arbeitszeugnis);
-            $mitarbeiter->setEmail($email);
+            $employee->setSozialversicherungsausweiss($sozialversicherungsausweiss);
+            $employee->setBruttoarbeitslohn($bruttoarbeitslohn);
+            $employee->setBewerbung($bewerbung);
+            $employee->setFoto($foto);
+            $employee->setArbeitszeugnis($arbeitszeugnis);
+            $employee->setEmail($email);
 
             $em = $this->getDoctrine()->getManager();
 
-            $em->persist($mitarbeiter);
+            $em->persist($employee);
             $em->flush();
 
             $this->addFlash(
                 'notice',
-                'Der Mitarbeiter wurde erstellt!'
+                'Der Employee wurde erstellt!'
             );
             //@TODO nur ein ausgang aus jeder Methode (hir gibt es 2 returns)
-            return $this->redirectToRoute('Mitarbeiter_anzeigen');
+            return $this->redirectToRoute('employee_index');
         }
 
-        return $this->render('mitarbeiter/create.html.twig', array(
+        return $this->render('employee/create.html.twig', array(
             'form' => $form->createView()
         ));
     }
@@ -221,12 +214,12 @@ class mitarbeiterController extends Controller
     public function detailsAction($id)
     {
 
-        $mitarbeiter = $this->getDoctrine()
-            ->getRepository('AppBundle:Mitarbeiter')
+        $employee = $this->getDoctrine()
+            ->getRepository('AppBundle:Employee')
             ->find($id);
 
-        return $this->render('mitarbeiter/details.html.twig', array(
-            'mitarbeiter' => $mitarbeiter
+        return $this->render('employee/details.html.twig', array(
+            'employee' => $employee
         ));
     }
 
@@ -234,62 +227,62 @@ class mitarbeiterController extends Controller
      * löschenAction wird hier definiert!
      */
     //@TODO englisch
-    public function löschenAction($id)
+    public function deleteAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $mitarbeiter = $em->getRepository('AppBundle:Mitarbeiter')->find($id);
+        $employee = $em->getRepository('AppBundle:Employee')->find($id);
 
-        $em->remove($mitarbeiter);
+        $em->remove($employee);
         $em->flush();
 
         $this->addFlash(
             'notice',
-            'Mitarbeiter gelöscht!'
+            'Employee gelöscht!'
         );
 
-        return $this->redirectToRoute('Mitarbeiter_anzeigen');
+        return $this->redirectToRoute('employee_index');
     }
 
     /**
      * bearbeitungAction wird hier definiert!
      */
     //@TODO englisch
-    public function bearbeitenAction($id, Request $request)
+    public function editAction($id, Request $request)
     {
-        $mitarbeiter = $this->getDoctrine()
-            ->getRepository('AppBundle:Mitarbeiter')
+        $employee = $this->getDoctrine()
+            ->getRepository('AppBundle:Employee')
             ->find($id);
 
-        $mitarbeiter->setVorname($mitarbeiter->getVorname());
-        $mitarbeiter->setNachname($mitarbeiter->getNachname());
-        $mitarbeiter->setStrasse($mitarbeiter->getStrasse());
-        $mitarbeiter->setHausnummer($mitarbeiter->getHausnummer());
-        $mitarbeiter->setPostleitzahl($mitarbeiter->getPostleitzahl());
-        $mitarbeiter->setOrt($mitarbeiter->getOrt());
-        $mitarbeiter->setGeburtsdatum($mitarbeiter->getGeburtsdatum());
-        $mitarbeiter->setGeburtsort($mitarbeiter->getGeburtsort());
-        $mitarbeiter->setFamilienstand($mitarbeiter->getFamilienstand());
-        $mitarbeiter->setPersonalausweissnummer($mitarbeiter->getPersonalausweissnummer());
-        $mitarbeiter->setTelefon($mitarbeiter->getTelefon());
+        $employee->setVorname($employee->getVorname());
+        $employee->setNachname($employee->getNachname());
+        $employee->setStrasse($employee->getStrasse());
+        $employee->setHausnummer($employee->getHausnummer());
+        $employee->setPostleitzahl($employee->getPostleitzahl());
+        $employee->setOrt($employee->getOrt());
+        $employee->setGeburtsdatum($employee->getGeburtsdatum());
+        $employee->setGeburtsort($employee->getGeburtsort());
+        $employee->setFamilienstand($employee->getFamilienstand());
+        $employee->setPersonalausweissnummer($employee->getPersonalausweissnummer());
+        $employee->setTelefon($employee->getTelefon());
 
         // Unternehmensdaten
-        $mitarbeiter->setAbteilung($mitarbeiter->getAbteilung());
-        $mitarbeiter->setPosition($mitarbeiter->getPosition());
-        $mitarbeiter->setEinstellungsdatum($mitarbeiter->getEinstellungsdatum());
-        $mitarbeiter->setSteuerklasse($mitarbeiter->getSteuerklasse());
-        $mitarbeiter->setSteueridentifiktationsnummer($mitarbeiter->getSteueridentifiktationsnummer());
-        $mitarbeiter->setArbeitsstunden($mitarbeiter->getArbeitsstunden());
-        $mitarbeiter->setKrankenkasse($mitarbeiter->getKrankenkasse());
-        $mitarbeiter->setBildungsabschluss($mitarbeiter->getBildungsabschluss());
+        $employee->setAbteilung($employee->getAbteilung());
+        $employee->setPosition($employee->getPosition());
+        $employee->setEinstellungsdatum($employee->getEinstellungsdatum());
+        $employee->setSteuerklasse($employee->getSteuerklasse());
+        $employee->setSteueridentifiktationsnummer($employee->getSteueridentifiktationsnummer());
+        $employee->setArbeitsstunden($employee->getArbeitsstunden());
+        $employee->setKrankenkasse($employee->getKrankenkasse());
+        $employee->setBildungsabschluss($employee->getBildungsabschluss());
         // Alle anderen zum einordnen:
-        $mitarbeiter->setSozialversicherungsausweiss($mitarbeiter->getSozialversicherungsausweiss());
-        $mitarbeiter->setBruttoarbeitslohn($mitarbeiter->getBruttoarbeitslohn());
-        $mitarbeiter->setBewerbung($mitarbeiter->getBewerbung());
-        $mitarbeiter->setFoto($mitarbeiter->getFoto());
-        $mitarbeiter->setArbeitszeugnis($mitarbeiter->getArbeitszeugnis());
-        $mitarbeiter->setEmail($mitarbeiter->getEmail());
+        $employee->setSozialversicherungsausweiss($employee->getSozialversicherungsausweiss());
+        $employee->setBruttoarbeitslohn($employee->getBruttoarbeitslohn());
+        $employee->setBewerbung($employee->getBewerbung());
+        $employee->setFoto($employee->getFoto());
+        $employee->setArbeitszeugnis($employee->getArbeitszeugnis());
+        $employee->setEmail($employee->getEmail());
 
-        $form = $this->createFormBuilder($mitarbeiter)
+        $form = $this->createFormBuilder($employee)
             //TextType:
             ->add('vorname', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             ->add('nachname', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
@@ -330,7 +323,7 @@ class mitarbeiterController extends Controller
                 'Name der Abteilung1' => 'Name der Abteilung1'),
                 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             ->add('position', ChoiceType::class, array('choices' => array(
-                'Mitarbeiter' => 'Mitarbeiter',
+                'Employee' => 'Employee',
                 'Teamleiter' => 'Teamleiter',
                 'Kitaleiter' => 'Kitaleiter',
                 'Geschäftsführer' => 'Geschäftsführer'),
@@ -357,7 +350,7 @@ class mitarbeiterController extends Controller
                 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
 
             // Bestätigungbutton um das Formular zu übernehmen
-            ->add('save', SubmitType::class, array('label' => 'Erstelle Mitarbeiter', 'attr' => array('class' => 'btn btn-primary', 'style' => 'margin-bottom:15px')))
+            ->add('save', SubmitType::class, array('label' => 'Erstelle Employee', 'attr' => array('class' => 'btn btn-primary', 'style' => 'margin-bottom:15px')))
             ->getForm();
 
         $form->handleRequest($request);
@@ -396,49 +389,49 @@ class mitarbeiterController extends Controller
             $email = $form ['email']->getData();
 
             $em = $this->getDoctrine()->getManager();
-            $mitarbeiter = $em->getRepository('AppBundle:Mitarbeiter')->find($id);
+            $employee = $em->getRepository('AppBundle:Employee')->find($id);
 
-            $mitarbeiter->setVorname($vorname);
-            $mitarbeiter->setNachname($nachname);
-            $mitarbeiter->setStrasse($strasse);
-            $mitarbeiter->setHausnummer($hausnummer);
-            $mitarbeiter->setPostleitzahl($postleitzahl);
-            $mitarbeiter->setOrt($ort);
-            $mitarbeiter->setGeburtsdatum($geburtsdatum);
-            $mitarbeiter->setGeburtsort($geburtsort);
-            $mitarbeiter->setFamilienstand($familienstand);
-            $mitarbeiter->setPersonalausweissnummer($personalausweissnummer);
-            $mitarbeiter->setTelefon($telefon);
+            $employee->setVorname($vorname);
+            $employee->setNachname($nachname);
+            $employee->setStrasse($strasse);
+            $employee->setHausnummer($hausnummer);
+            $employee->setPostleitzahl($postleitzahl);
+            $employee->setOrt($ort);
+            $employee->setGeburtsdatum($geburtsdatum);
+            $employee->setGeburtsort($geburtsort);
+            $employee->setFamilienstand($familienstand);
+            $employee->setPersonalausweissnummer($personalausweissnummer);
+            $employee->setTelefon($telefon);
 
             // Unternehmensdaten
-            $mitarbeiter->setAbteilung($abteilung);
-            $mitarbeiter->setPosition($position);
-            $mitarbeiter->setEinstellungsdatum($einstellungsdatum);
-            $mitarbeiter->setSteuerklasse($steuerklasse);
-            $mitarbeiter->setSteueridentifiktationsnummer($steueridentifiktationsnummer);
-            $mitarbeiter->setArbeitsstunden($arbeitsstunden);
-            $mitarbeiter->setKrankenkasse($krankenkasse);
-            $mitarbeiter->setBildungsabschluss($bildungsabschluss);
+            $employee->setAbteilung($abteilung);
+            $employee->setPosition($position);
+            $employee->setEinstellungsdatum($einstellungsdatum);
+            $employee->setSteuerklasse($steuerklasse);
+            $employee->setSteueridentifiktationsnummer($steueridentifiktationsnummer);
+            $employee->setArbeitsstunden($arbeitsstunden);
+            $employee->setKrankenkasse($krankenkasse);
+            $employee->setBildungsabschluss($bildungsabschluss);
             // Alle anderen zum einordnen:
-            $mitarbeiter->setSozialversicherungsausweiss($sozialversicherungsausweiss);
-            $mitarbeiter->setBruttoarbeitslohn($bruttoarbeitslohn);
-            $mitarbeiter->setBewerbung($bewerbung);
-            $mitarbeiter->setFoto($foto);
-            $mitarbeiter->setArbeitszeugnis($arbeitszeugnis);
-            $mitarbeiter->setEmail($email);
+            $employee->setSozialversicherungsausweiss($sozialversicherungsausweiss);
+            $employee->setBruttoarbeitslohn($bruttoarbeitslohn);
+            $employee->setBewerbung($bewerbung);
+            $employee->setFoto($foto);
+            $employee->setArbeitszeugnis($arbeitszeugnis);
+            $employee->setEmail($email);
 
             $em->flush();
 
             $this->addFlash(
                 'notice',
-                'Mitarbeiter bearbeitet!'
+                'Employee bearbeitet!'
             );
 
-            return $this->redirectToRoute('Mitarbeiter_anzeigen');
+            return $this->redirectToRoute('employee_index');
         }
 
-        return $this->render('mitarbeiter/create.html.twig', array(
-            'mitarbeiter' => $mitarbeiter,
+        return $this->render('employee/create.html.twig', array(
+            'employee' => $employee,
             'form' => $form->createView()
         ));
     }

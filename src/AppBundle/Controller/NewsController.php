@@ -22,10 +22,10 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 //@TODO Klassenname groß
-class newsController extends Controller
+class NewsController extends Controller
 {
 
-    public function anzeigenAction()
+    public function indexAction()
     {
         $news = $this->getDoctrine()
             ->getRepository('AppBundle:News')
@@ -37,7 +37,7 @@ class newsController extends Controller
         ));
     }
 
-    public function erstellenAction(Request $request)
+    public function createAction(Request $request)
     {
         /**
         * @TODO Der richtige weg wäre:
