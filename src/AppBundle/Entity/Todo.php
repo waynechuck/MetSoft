@@ -18,9 +18,10 @@ class Todo
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      //@TODO auto_increment ist evil aufm PK, nicht verwenden
+     //@Todo gleiche wie bei News?!
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    private $id; //@Todo kann ich hier die ID als 5 Stellige Zahl ausgeben? Wie würde ich das machen?
 
     /**
      * @var string
@@ -45,7 +46,7 @@ class Todo
 
     /**
      * @var string
-     //@TODO priority als string?
+     //@TODO priority als string? Macht kein Sinn hast du recht :) Ändere ich!
      * @ORM\Column(name="priority", type="string", length=255)
      */
     private $priority;

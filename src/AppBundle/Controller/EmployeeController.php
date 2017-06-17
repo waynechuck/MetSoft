@@ -41,9 +41,9 @@ class EmployeeController extends Controller
             ->getRepository('AppBundle:Employee')
             ->findAll();
 
-        return $this->render('employee/index.html.twig', array(
+        return $this->render('employee/index.html.twig', [
             'employee' => $employee
-        ));
+        ]);
     }
 
     //@TODO englisch (in der gesamten Methode) und Leerzeile zwischen den Methoden
@@ -54,31 +54,35 @@ class EmployeeController extends Controller
         $employee = new Employee;
         //@TODO wer soll hier durchschauen? Versuch das mal übersichtlicher zu gestalten
         $form = $this->createFormBuilder($employee)
+
             //TextType:
             //@TODO wenn wir php7 vorraussetzen, dann können wir auch die kurze array Syntax verwenden
-            ->add('vorname', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('nachname', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('strasse', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('hausnummer', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('ort', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('geburtsort', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('sozialversicherungsausweiss', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('bruttoarbeitslohn', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('bewerbung', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('foto', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('arbeitszeugnis', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('personalausweissnummer', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('bildungsabschluss', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('krankenkasse', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('vorname', TextType::class, ['attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+            ->add('nachname', TextType::class, ['attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+            ->add('strasse', TextType::class, ['attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+            ->add('hausnummer', TextType::class, ['attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+            ->add('ort', TextType::class, ['attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+            ->add('geburtsort', TextType::class, ['attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+            ->add('sozialversicherungsausweiss', TextType::class, ['attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+            ->add('bruttoarbeitslohn', TextType::class, ['attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+            ->add('bewerbung', TextType::class, ['attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+            ->add('foto', TextType::class, ['attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+            ->add('arbeitszeugnis', TextType::class, ['attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+            ->add('personalausweissnummer', TextType::class, ['attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+            ->add('bildungsabschluss', TextType::class, ['attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+            ->add('krankenkasse', TextType::class, ['attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+
             // E-MailType
-            ->add('email', EmailType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('email', EmailType::class, ['attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+
             // NumberType
-            ->add('steueridentifiktationsnummer', NumberType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('arbeitsstunden', NumberType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('postleitzahl', NumberType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('telefon', NumberType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('steueridentifiktationsnummer', NumberType::class, ['attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+            ->add('arbeitsstunden', NumberType::class, ['attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+            ->add('postleitzahl', NumberType::class, ['attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+            ->add('telefon', NumberType::class, ['attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+
             // ChoiceType
-            ->add('familienstand', ChoiceType::class, array('choices' => array(
+            ->add('familienstand', ChoiceType::class, ['choices' => [
                 'ledig' => 'ledig',
                 'verheiratet' => 'verheiratet',
                 'verwitwet' => 'verwitwet',
@@ -88,40 +92,41 @@ class EmployeeController extends Controller
                 'durch Tod aufgelöste Lebenspartnerschaft' => 'durch Tod aufgelöste Lebenspartnerschaft',
                 'aufgehobene Lebenspartnerschaft' => 'aufgehobene Lebenspartnerschaft',
                 'durch Todeserklärung aufgelöste Lebenspartnerschaft' => 'durch Todeserklärung aufgelöste Lebenspartnerschaft',
-                'nicht bekannt' => 'nicht bekannt'),
-                'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('abteilung', ChoiceType::class, array('choices' => array(
+                'nicht bekannt' => 'nicht bekannt'],
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+            ->add('abteilung', ChoiceType::class, ['choices' => [
                 'Name der Abteilung' => 'Name der Abteilung',
-                'Name der Abteilung1' => 'Name der Abteilung1'),
-                'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('position', ChoiceType::class, array('choices' => array(
+                'Name der Abteilung1' => 'Name der Abteilung1'],
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+            ->add('position', ChoiceType::class, ['choices' => [
                 'Employee' => 'Employee',
                 'Teamleiter' => 'Teamleiter',
                 'Kitaleiter' => 'Kitaleiter',
-                'Geschäftsführer' => 'Geschäftsführer'),
-                'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('steuerklasse', ChoiceType::class, array('choices' => array(
+                'Geschäftsführer' => 'Geschäftsführer'],
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+            ->add('steuerklasse', ChoiceType::class, ['choices' => [
                 'eins' => 'I',
                 'zwei' => 'II',
                 'drei' => 'III',
                 'vier' => 'IV',
                 'fünf' => 'V',
-                'sechs' => 'VI'),
-                'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            //DateType + BirthsdayType Typen
+                'sechs' => 'VI'],
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
 
-            ->add('einstellungsdatum', DateType::class, array(
-                'placeholder' => array(
-                    'year' => 'Jahr', 'month' => 'Monat', 'day' => 'Tag'),
-                'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('geburtsdatum', BirthdayType::class, array(
-                'placeholder' => array(
+            //DateType + BirthsdayType Typen
+            ->add('einstellungsdatum', DateType::class, [
+                'placeholder' => [
+                    'year' => 'Jahr', 'month' => 'Monat', 'day' => 'Tag'],
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+            ->add('geburtsdatum', BirthdayType::class, [
+                'placeholder' => [
                     'year' => 'Jahr',
                     'month' => 'Monat',
-                    'day' => 'Tag'),
-                'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+                    'day' => 'Tag'],
+                'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']])
+
             // Bestätigungbutton um das Formular zu übernehmen
-            ->add('save', SubmitType::class, array('label' => 'Erstelle Employee', 'attr' => array('class' => 'btn btn-primary', 'style' => 'margin-bottom:15px')))
+            ->add('save', SubmitType::class, ['label' => 'Erstelle Employee', 'attr' => ['class' => 'btn btn-primary', 'style' => 'margin-bottom:15px']])
             ->getForm();
 
         $form->handleRequest($request);
@@ -199,12 +204,13 @@ class EmployeeController extends Controller
                 'Der Employee wurde erstellt!'
             );
             //@TODO nur ein ausgang aus jeder Methode (hir gibt es 2 returns)
+            //@TODO http://symfony.com/doc/current/forms.html habe es nach dem Schema gemacht, hat du nen Vorschlag?
             return $this->redirectToRoute('employee_index');
         }
 
-        return $this->render('employee/create.html.twig', array(
+        return $this->render('employee/create.html.twig', [
             'form' => $form->createView()
-        ));
+        ]);
     }
 
     /**
@@ -218,9 +224,9 @@ class EmployeeController extends Controller
             ->getRepository('AppBundle:Employee')
             ->find($id);
 
-        return $this->render('employee/details.html.twig', array(
+        return $this->render('employee/details.html.twig', [
             'employee' => $employee
-        ));
+        ]);
     }
 
     /**
@@ -430,9 +436,9 @@ class EmployeeController extends Controller
             return $this->redirectToRoute('employee_index');
         }
 
-        return $this->render('employee/create.html.twig', array(
+        return $this->render('employee/create.html.twig', [
             'employee' => $employee,
             'form' => $form->createView()
-        ));
+        ]);
     }
 }

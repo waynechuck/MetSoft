@@ -29,13 +29,13 @@
                     <td> {{ employee.telefon }} </td>
                     <td> {{ employee.position}} </td>
                     <td>
-                        <a href="{{ path('employee_details', { 'id' : mitarbeiter.id }) }}" class="btn btn-success">
+                        <a href="{{ path('employee_details', { 'id' : employee.id }) }}" class="btn btn-success">
                             Details
                         </a>
-                        <a href="{{ path('employee_edit', { 'id' : mitarbeiter.id }) }}" class="btn btn-info">
+                        <a href="{{ path('employee_edit', { 'id' : employee.id }) }}" class="btn btn-info">
                             Bearbeiten
                         </a>
-                        <a href="{{ path('employee_delete', { 'id' : mitarbeiter.id }) }}" class="btn btn-danger">
+                        <a href="{{ path('employee_delete', { 'id' : employee.id }) }}" class="btn btn-danger">
                             Löschen
                         </a>
                     </td>

@@ -19,6 +19,8 @@ class News
      * @ORM\Id
      //@TODO auto_increment ist evil aufm PK, nicht verwenden
      //@TODO Besser ist, UUID erzeugen und per md5 hash eine (DB)unique id erzeugen
+     // @Todo kann ich es einfach rausnehmen oder was ist zu empfehlen? Verstehe die Tipps bei Google nicht so recht
+     // @Todo habe das hier mit dem Befehl php app/console doctrine:generate:entity erstellt, ist das ne doofe idee?
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
