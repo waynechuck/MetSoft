@@ -9,7 +9,7 @@
     </div>
     <div class="jumbotron">
         {#@TODO keine hartgecodeten URLS verwenden#}
-        <a class="btn btn-primary" href="/dashboard/todos/erstellen">Todo´s hinzufügen</a>
+        <a class="btn btn-primary" href="{{ path('todo_create') }}">Todo´s hinzufügen</a>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -27,11 +27,11 @@
                     <td>{{ todo.dueDate|date('F j, Y, g:i a')}}</td>
                     <td>
                         {#@TODO keine hartgecodeten URLS verwenden#}
-                        <a href="/dashboard/todos/details/{{ todo.id }}" class="btn btn-success">Details</a>
+                        <a href="{{ path('todo_details', { 'id' : todo.id }) }}" class="btn btn-success">Details</a>
                         {#@TODO keine hartgecodeten URLS verwenden#}
-                        <a href="/dashboard/todos/bearbeiten/{{ todo.id }}" class="btn btn-info">Bearbeiten</a>
+                        <a href="{{ path('todo_edit', { 'id' : todo.id }) }}" class="btn btn-info">Bearbeiten</a>
                         {#@TODO keine hartgecodeten URLS verwenden#}
-                        <a href="/dashboard/todos/löschen/{{ todo.id }}" class="btn btn-danger">Löschen</a>
+                        <a href="{{ path('todo_delete', { 'id' : todo.id }) }}" class="btn btn-danger">Löschen</a>
                     </td>
                 </tr>
             {% endfor %}

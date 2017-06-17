@@ -37,16 +37,14 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                         <ul class="nav navbar-nav navbar-left">
                             {#@TODO keine hartgecodeten URLS verwenden#}
-                            <li><a href="/">Zur Webseite</a></li>
-                            <li><a href="/dashboard">Übersicht</a></li>
-                            <li><a href="/dashboard/news">News</a></li>
-                            <li><a href="/dashboard/todos">Todo´s</a></li>
-                            <li><a href="/dashboard/mitarbeiter">Mitarbeiter</a></li>
-                            <li><a href="/dashboard/finance">Finanzen</a></li>
-                            <li><a href="/dashboard/project">Projekte</a></li>
-                            <li><a href="/dashboard/customer">Kunden</a></li>
-
-
+                            <li><a href="{{ path('homepage') }}">Zur Webseite</a></li>
+                            <li><a href="{{ path('dashboard') }}">Übersicht</a></li>
+                            <li><a href="{{ path('news_index') }}">News</a></li>
+                            <li><a href="{{ path('todo_index') }}">Todo´s</a></li>
+                            <li><a href="{{ path('employee_index') }}">Mitarbeiter</a></li>
+                            <li><a href="{{ path('finance_index') }}">Finanzen</a></li>
+                            <li><a href="{{ path('project_index') }}">Projekte</a></li>
+                            <li><a href="{{ path('customer_index') }}">Kunden</a></li>
                         </ul>
                     </div>
                 </div>

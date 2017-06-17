@@ -2,7 +2,7 @@
 
 {% block body %}
     {#@TODO keine hartgecodeten URLS verwenden#}
-    <a class="btn btn-default" href="#">Zurück zur Mitarbeiterübersicht</a>
+    <a class="btn btn-default" href="{{ path('employee_index') }}">Zurück zur Mitarbeiterübersicht</a>
     <hr>
 
     <h2 class="page-header">{{ employee.vorname }}</h2>

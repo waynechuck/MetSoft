@@ -10,7 +10,7 @@
 
     <div class="jumbotron">
         {#@TODO keine hartgecodeten URLS verwenden#}
-        <a class="btn btn-primary" href="/dashboard/news">zurück zur Übersicht</a>
+        <a class="btn btn-primary" href="{{ path('news_index') }}">zurück zur Übersicht</a>
 
         <h2 class="page-header">News hinzufügen</h2>
         {{ form_start(form) }}

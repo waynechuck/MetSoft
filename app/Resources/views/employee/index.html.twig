@@ -8,7 +8,7 @@
 
     <div class="jumbotron">
         {#@TODO keine hartgecodeten URLS verwenden#}
-        <a href="/dashboard/mitarbeiter/erstellen" class="btn btn-primary">Mitarbeiterprofil anlegen</a>
+        <a href="{{ path('employee_create') }}" class="btn btn-primary">Mitarbeiterprofil anlegen</a>
         <table class="table table-striped table-hover">
             <thead>
             <tr>
@@ -29,13 +29,13 @@
                     <td> {{ employee.telefon }} </td>
                     <td> {{ employee.position}} </td>
                     <td>
-                        <a href="/dashboard/mitarbeiter/details/{{ employee.id }}" class="btn btn-success">
+                        <a href="{{ path('employee_details', { 'id' : mitarbeiter.id }) }}" class="btn btn-success">
                             Details
                         </a>
-                        <a href="/dashboard/mitarbeiter/bearbeiten/{{ employee.id }}" class="btn btn-info">
+                        <a href="{{ path('employee_edit', { 'id' : mitarbeiter.id }) }}" class="btn btn-info">
                             Bearbeiten
                         </a>
-                        <a href="/dashboard/mitarbeiter/löschen/{{ employee.id }}" class="btn btn-danger">
+                        <a href="{{ path('employee_delete', { 'id' : mitarbeiter.id }) }}" class="btn btn-danger">
                             Löschen
                         </a>
                     </td>
