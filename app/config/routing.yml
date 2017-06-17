@@ -49,7 +49,7 @@ login:
     path:     /login
     defaults: { _controller: AppBundle:Security:index }
 
-# Newsseite zum Üben, warten auf Sven´s Aufgaben! Funktioniert!
+# Newsseite
 
 news_index:
     path:     /dashboard/news
