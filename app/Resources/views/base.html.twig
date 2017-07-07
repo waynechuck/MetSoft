@@ -16,7 +16,10 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap core JavaSkript -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" rel="stylesheet">
-
+    <!-- Main-CSS-Datei -->
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+    <!-- Navbar-Design CSS-Datei -->
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}" />
     {% block stylesheets %}{% endblock %}
 
 </head>
@@ -79,7 +82,7 @@
         {% endblock %}
     </div>
 
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
         <div class="panel-body">
             <!-- footer start -->
             <div class="row">
@@ -120,6 +123,11 @@
 
 
     </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Bootstrap core JavaSkript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
     {% block javascripts %}{% endblock %}

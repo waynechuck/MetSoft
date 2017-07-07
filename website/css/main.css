@@ -1,0 +1,22 @@
+/* Service und Logo größe */
+
+/* Add an orange color to all icons and set the font-size */
+.logo-small {
+    color: #375a7f;
+    font-size: 75px;
+}
+
+.logo {
+    color: #375a7f;
+    font-size: 200px;
+}
+
+.carousel-font {
+    position: absolute;
+    color: #FFFFFF;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    text-align: center;
+}
